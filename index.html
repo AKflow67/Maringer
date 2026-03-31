@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Métallerie Maringer — Métallier forgeron en Alsace</title>
+  <meta name="description" content="Métallerie Maringer, métallier forgeron en Alsace. Serres, verrières, escaliers, garde-corps et mobilier sur mesure. Compagnon du Tour de France, plus de 15 ans d'expérience.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://metalleriemaringer.fr/">
+  <meta property="og:title" content="Métallerie Maringer — Métallier forgeron en Alsace">
+  <meta property="og:description" content="Serres, verrières, escaliers, garde-corps et mobilier sur mesure. Compagnon du Tour de France.">
+  <meta property="og:url" content="https://metalleriemaringer.fr/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://metalleriemaringer.fr/images/hero-serre-atelier.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Métallerie Maringer",
+    "description": "Métallier forgeron, Compagnon du Tour de France. Serres, verrières, escaliers, garde-corps et mobilier acier sur mesure.",
+    "address": { "@type": "PostalAddress", "addressRegion": "Alsace", "addressCountry": "FR" },
+    "url": "https://metalleriemaringer.fr",
+    "sameAs": ["https://www.facebook.com/metalleriemaringer"]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ivory:      #f5f0ea;
+      --ivory-dark: #ede7df;
+      --black:      #181616;
+      --charcoal:   #2a2424;
+      --bordeaux:   #7a1728;
+      --marine:     #1a2a4a;
+      --gray:       #8a8278;
+      --rule:       #ddd6cc;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ivory);
+      color: var(--black);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.6rem 3.5rem;
+      transition: padding .35s, background .35s, border-color .35s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.stuck {
+      background: rgba(245,240,234,.96);
+      backdrop-filter: blur(10px);
+      padding: 1rem 3.5rem;
+      border-bottom-color: var(--rule);
+    }
+    .nav-logo { line-height: 0; }
+    .nav-logo img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+      transition: filter .35s;
+    }
+    nav:not(.stuck) .nav-logo img { filter: brightness(0) invert(1); }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color .2s;
+    }
+    nav:not(.stuck) .nav-links a { color: rgba(255,255,255,.8); }
+    nav.stuck .nav-links a { color: var(--black); }
+    .nav-links a:hover { color: var(--bordeaux) !important; }
+    .nav-links a.fb { opacity: .65; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100svh;
+      min-height: 580px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+    .hero-veil {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        150deg,
+        rgba(24,22,22,.72) 0%,
+        rgba(24,22,22,.38) 55%,
+        rgba(24,22,22,.12) 100%
+      );
+    }
+    .hero-body {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 3.5rem 5.5rem;
+      max-width: 700px;
+    }
+    .hero-eyebrow {
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+      margin-bottom: 1.25rem;
+    }
+    .hero-h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5.5vw, 5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      color: #fff;
+      margin-bottom: 1.75rem;
+    }
+    .hero-h1 em { font-style: italic; }
+    .hero-rule {
+      width: 44px;
+      height: 1px;
+      background: var(--bordeaux);
+      margin-bottom: 1.5rem;
+    }
+    .hero-sub {
+      font-size: .9rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.72);
+      max-width: 420px;
+      letter-spacing: .04em;
+    }
+    .scroll-cue {
+      position: absolute;
+      bottom: 2.25rem;
+      right: 3.5rem;
+      writing-mode: vertical-rl;
+      font-size: .6rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+    .scroll-cue::after {
+      content: '';
+      width: 1px;
+      height: 52px;
+      background: rgba(255,255,255,.25);
+      animation: grow 2s ease-in-out infinite;
+      transform-origin: top;
+    }
+    @keyframes grow {
+      0%,100% { transform: scaleY(0); }
+      50%      { transform: scaleY(1); }
+    }
+
+    /* ── CONTAINERS ── */
+    .wrap { max-width: 1160px; margin: 0 auto; padding: 0 3.5rem; }
+    .section-label {
+      display: block;
+      font-size: .62rem;
+      font-weight: 600;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--bordeaux);
+      margin-bottom: 1.25rem;
+    }
+    .h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    .h2 em { font-style: italic; }
+    .h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+    .h3 em { font-style: italic; }
+    .body-text {
+      font-size: .93rem;
+      line-height: 1.9;
+      color: #3e3838;
+    }
+    .body-text + .body-text { margin-top: 1.1rem; }
+
+    /* ── INTRO ── */
+    #accueil-section {
+      padding: 7rem 0;
+    }
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .quote-block {
+      background: var(--charcoal);
+      padding: 3.5rem;
+      position: relative;
+    }
+    .quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 7rem;
+      line-height: .7;
+      color: var(--bordeaux);
+      opacity: .45;
+      position: absolute;
+      top: 2rem;
+      left: 2.2rem;
+      pointer-events: none;
+    }
+    .quote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 300;
+      font-style: italic;
+      color: #fff;
+      line-height: 1.5;
+      position: relative;
+      z-index: 1;
+      padding-top: 1.5rem;
+    }
+    .quote-attr {
+      margin-top: 1.5rem;
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+    }
+
+    /* ── DOMAINES ── */
+    #savoir-faire {
+      background: var(--charcoal);
+      padding: 6.5rem 0;
+    }
+    #savoir-faire .section-label { color: rgba(255,255,255,.35); }
+    #savoir-faire .h2 { color: #fff; }
+    .domaines-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid rgba(255,255,255,.08);
+      margin-top: 3.5rem;
+    }
+    .domaine {
+      padding: 2.5rem 2rem;
+      border: 1px solid rgba(255,255,255,.08);
+      transition: background .3s;
+      cursor: default;
+    }
+    .domaine:hover { background: rgba(122,23,40,.18); }
+    .d-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      line-height: 1;
+      color: rgba(255,255,255,.07);
+      margin-bottom: 1rem;
+    }
+    .d-name {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: .6rem;
+    }
+    .d-desc {
+      font-size: .82rem;
+      color: rgba(255,255,255,.4);
+      line-height: 1.65;
+    }
+
+    /* ── SPLITS ── */
+    .splits { }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 560px;
+    }
+    .split-img {
+      overflow: hidden;
+    }
+    .split-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform .9s ease;
+    }
+    .split-img:hover img { transform: scale(1.05); }
+    .split-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4.5rem;
+    }
+    .split.flip { }
+    .split.flip .split-img { order: 2; }
+    .split.flip .split-content { order: 1; background: var(--charcoal); }
+    .split.flip .section-label { color: rgba(255,255,255,.35); }
+    .split.flip .h3 { color: #fff; }
+    .split.flip .body-text { color: rgba(255,255,255,.58); }
+
+    /* ── DETAIL BAND ── */
+    .detail-band {
+      background: var(--ivory-dark);
+      padding: 5rem 0;
+      overflow: hidden;
+    }
+    .detail-band-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+    }
+    .detail-photo {
+      aspect-ratio: 1;
+      overflow: hidden;
+    }
+    .detail-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(15%);
+      transition: filter .4s, transform .6s;
+    }
+    .detail-photo:hover img { filter: grayscale(0%); transform: scale(1.04); }
+    .detail-caption {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3.5rem;
+      grid-column: span 2;
+    }
+    .detail-caption .body-text { font-size: .95rem; }
+
+    /* ── ATELIER ── */
+    #atelier {
+      padding: 7.5rem 0;
+    }
+    .atelier-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 5.5rem;
+      align-items: start;
+    }
+    .atelier-img-wrap {
+      position: relative;
+    }
+    .atelier-img {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+    .atelier-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+    }
+    .atelier-badge {
+      position: absolute;
+      bottom: -1.75rem;
+      right: -1.75rem;
+      width: 110px;
+      height: 110px;
+      background: var(--bordeaux);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+    }
+    .badge-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: #fff;
+      line-height: 1;
+    }
+    .badge-label {
+      font-size: .55rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.75);
+      margin-top: .25rem;
+    }
+    .atelier-values {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: .9rem;
+    }
+    .atelier-val {
+      display: flex;
+      gap: .9rem;
+      align-items: flex-start;
+    }
+    .atelier-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--bordeaux);
+      margin-top: .65rem;
+      flex-shrink: 0;
+    }
+    .atelier-val-text {
+      font-size: .88rem;
+      color: #3e3838;
+      line-height: 1.7;
+    }
+
+    /* ── FB CTA ── */
+    .fb-cta {
+      background: var(--marine);
+      padding: 5.5rem 0;
+      text-align: center;
+    }
+    .fb-cta .section-label { color: rgba(255,255,255,.3); margin-bottom: 1rem; }
+    .fb-cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 3.2vw, 2.8rem);
+      font-weight: 300;
+      color: #fff;
+      margin-bottom: .75rem;
+    }
+    .fb-cta-sub {
+      font-size: .88rem;
+      color: rgba(255,255,255,.45);
+      margin-bottom: 2.75rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .95rem 2.25rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: background .25s, color .25s, border-color .25s;
+      cursor: pointer;
+    }
+    .btn-ivory {
+      background: var(--ivory);
+      color: var(--marine);
+      border-color: var(--ivory);
+    }
+    .btn-ivory:hover {
+      background: transparent;
+      color: var(--ivory);
+    }
+    .btn-bordeaux {
+      background: var(--bordeaux);
+      color: #fff;
+      border-color: var(--bordeaux);
+    }
+    .btn-bordeaux:hover {
+      background: transparent;
+      border-color: var(--bordeaux);
+      color: var(--bordeaux);
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      padding: 7.5rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 6rem;
+    }
+    .contact-meta {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .contact-meta-item label {
+      display: block;
+      font-size: .6rem;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: .3rem;
+    }
+    .contact-meta-item span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .field { display: flex; flex-direction: column; gap: .35rem; }
+    .field label {
+      font-size: .6rem;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+    .field input,
+    .field textarea,
+    .field select {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--rule);
+      padding: .7rem 0;
+      font-family: 'Raleway', sans-serif;
+      font-size: .92rem;
+      font-weight: 300;
+      color: var(--black);
+      outline: none;
+      width: 100%;
+      transition: border-color .2s;
+      -webkit-appearance: none;
+    }
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus { border-bottom-color: var(--bordeaux); }
+    .field textarea { resize: none; min-height: 96px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      padding: 2.5rem 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .footer-logo img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: .5;
+    }
+    .footer-copy {
+      font-size: .65rem;
+      color: rgba(255,255,255,.28);
+      letter-spacing: .08em;
+    }
+    .footer-link {
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-link:hover { color: #fff; }
+
+    /* ── REVEAL ── */
+    .r {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .r.on { opacity: 1; transform: translateY(0); }
+    .r.d1 { transition-delay: .1s; }
+    .r.d2 { transition-delay: .2s; }
+    .r.d3 { transition-delay: .3s; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1.25rem 1.5rem; }
+      nav.stuck { padding: .85rem 1.5rem; }
+      .nav-links { display: none; }
+      .wrap { padding: 0 1.5rem; }
+
+      .hero-body { padding: 0 1.5rem 3.5rem; }
+      .hero-h1 { font-size: clamp(2.4rem, 8vw, 3.2rem); }
+
+      #accueil-section { padding: 4.5rem 0; }
+      .intro-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+      #savoir-faire { padding: 4.5rem 0; }
+      .domaines-grid { grid-template-columns: 1fr 1fr; }
+
+      .split { grid-template-columns: 1fr; min-height: auto; }
+      .split-img { aspect-ratio: 4/3; }
+      .split-content { padding: 2.5rem 1.5rem; }
+      .split.flip .split-img { order: 0; }
+      .split.flip .split-content { order: 1; }
+
+      .detail-band-inner { grid-template-columns: 1fr; }
+      .detail-photo { aspect-ratio: 16/9; }
+      .detail-caption { grid-column: 1; padding: 2rem 1.5rem; }
+
+      #atelier { padding: 4.5rem 0; }
+      .atelier-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .atelier-badge { right: -.75rem; bottom: -.75rem; width: 96px; height: 96px; }
+
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+
+      footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="nav-logo" aria-label="Métallerie Maringer — Accueil">
+      <img src="images/logo.png" alt="Logo Métallerie Maringer">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#accueil-section">Accueil</a></li>
+      <li><a href="#atelier">L'Atelier</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://www.facebook.com/metalleriemaringer" target="_blank" rel="noopener" class="fb">Facebook →</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-bg">
+      <img src="images/hero-serre-atelier.jpg"
+           alt="Serre acier cintrée en fabrication à l'atelier Maringer"
+           loading="eager"
+           fetchpriority="high">
+    </div>
+    <div class="hero-veil"></div>
+    <div class="hero-body">
+      <p class="hero-eyebrow">Alsace · Métallier forgeron · Compagnons du Tour de France</p>
+      <h1 class="hero-h1">Le métal,<br><em>à la mesure<br>de vos projets</em></h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub">Des solutions là où personne n'y arrive — depuis plus de 15 ans.</p>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">Découvrir</div>
+  </section>
+
+  <!-- INTRO -->
+  <section id="accueil-section">
+    <div class="wrap">
+      <div class="intro-grid">
+
+        <div class="r">
+          <span class="section-label">Métallerie Maringer</span>
+          <h2 class="h2">Un atelier.<br><em>Toutes les solutions.</em></h2>
+          <p class="body-text">Serres d'exception, verrières intérieures, escaliers acier-bois, garde-corps forgés, portails, pergolas, mobilier — chaque projet naît à l'atelier, en Alsace, et rejoint son chantier calculé au millimètre.</p>
+          <p class="body-text">Petite structure par choix. Les outils parlent d'eux-mêmes.</p>
+        </div>
+
+        <div class="quote-block r d2">
+          <span class="quote-mark" aria-hidden="true">"</span>
+          <p class="quote-text">Des idées et des solutions, surtout si personne n'y arrive. Une vision pour votre projet, même si vous n'arrivez pas encore à le formuler.</p>
+          <p class="quote-attr">Henri Maringer — Métallier forgeron</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SAVOIR-FAIRE -->
+  <section id="savoir-faire">
+    <div class="wrap">
+      <span class="section-label r">Savoir-faire</span>
+      <h2 class="h2 r d1">Ce que nous<br><em>réalisons</em></h2>
+      <div class="domaines-grid">
+        <div class="domaine r">
+          <div class="d-num">01</div>
+          <p class="d-name">Serres &amp; Vérandas</p>
+          <p class="d-desc">Structure acier cintrée, vitrages, mécanismes d'ouverture par engrenage et double chaîne. Entièrement fabriquée à l'atelier.</p>
+        </div>
+        <div class="domaine r d1">
+          <div class="d-num">02</div>
+          <p class="d-name">Verrières intérieures</p>
+          <p class="d-desc">Cloisons acier et verre, portes vitrées, séparations lumineuses pour architectures contemporaines ou patrimoniales.</p>
+        </div>
+        <div class="domaine r d2">
+          <div class="d-num">03</div>
+          <p class="d-name">Escaliers</p>
+          <p class="d-desc">Limons acier, marches bois massif, rampes forgées. Calculés et adaptés à chaque structure existante.</p>
+        </div>
+        <div class="domaine r">
+          <div class="d-num">04</div>
+          <p class="d-name">Garde-corps &amp; Portails</p>
+          <p class="d-desc">Ferronnerie forgée, patine, galvanisation, masticage à l'ancienne. Toutes finitions, toutes architectures.</p>
+        </div>
+        <div class="domaine r d1">
+          <div class="d-num">05</div>
+          <p class="d-name">Mobilier métal</p>
+          <p class="d-desc">Tables, piètements sculptés, structures complexes. Mariage du métal et du bois, conçus pour durer.</p>
+        </div>
+        <div class="domaine r d2">
+          <div class="d-num">06</div>
+          <p class="d-name">Pergolas &amp; Claustras</p>
+          <p class="d-desc">Structures extérieures sur mesure, calculées pour résister aux charges et aux intempéries alsaciennes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPLITS RÉALISATIONS -->
+  <div class="splits">
+
+    <!-- SERRE POSÉE -->
+    <div class="split">
+      <div class="split-img r">
+        <img src="images/serre-posee.jpg"
+             alt="Serre acier cintrée posée sur chantier — Métallerie Maringer"
+             loading="lazy">
+      </div>
+      <div class="split-content r d1">
+        <span class="section-label">Réalisation · Serre</span>
+        <h3 class="h3">Serre cintrée<br><em>acier et verre</em></h3>
+        <p class="body-text">Entièrement conçue et fabriquée à l'atelier. Structure acier cintré, soubassements ornementaux forgés à la main, système d'ouverture par engrenage double chaîne à contrepoids. Posée millimètre par millimètre, ajustée sur place.</p>
+      </div>
+    </div>
+
+    <!-- GARDE-CORPS COLOMBAGE -->
+    <div class="split flip">
+      <div class="split-img r">
+        <img src="images/garde-corps-colombage.jpg"
+             alt="Garde-corps forgé sur colombage alsacien — Métallerie Maringer"
+             loading="lazy">
+      </div>
+      <div class="split-content r d1">
+        <span class="section-label">Réalisation · Ferronnerie</span>
+        <h3 class="h3">Garde-corps forgé<br><em>sur colombage</em></h3>
+        <p class="body-text">Corps de ferme alsacien restauré. Ferronnerie acier forgé, tracé organique, finition mat. Le métal contemporain dialogue avec la pierre et les poutres d'époque sans jamais les dominer.</p>
+      </div>
+    </div>
+
+    <!-- PIÈTEMENT BRONZE -->
+    <div class="split">
+      <div class="split-img r">
+        <img src="images/pietement-bronze.jpg"
+             alt="Piètement bronze sculpté — mobilier sur mesure Métallerie Maringer"
+             loading="lazy">
+      </div>
+      <div class="split-content r d1">
+        <span class="section-label">Réalisation · Mobilier</span>
+        <h3 class="h3">Piètement sculpté<br><em>acier patine bronze</em></h3>
+        <p class="body-text">Structure géométrique en acier, patine bronze, sphère forgée. Une pièce à mi-chemin entre mobilier et sculpture, conçue pour un intérieur de maître. Du sur-mesure absolu.</p>
+      </div>
+    </div>
+
+    <!-- VERRIÈRE INTÉRIEURE -->
+    <div class="split flip">
+      <div class="split-img r">
+        <img src="images/verriere-interieure.jpg"
+             alt="Verrière intérieure acier noir — Métallerie Maringer"
+             loading="lazy">
+      </div>
+      <div class="split-content r d1">
+        <span class="section-label">Réalisation · Verrière</span>
+        <h3 class="h3">Verrière intérieure<br><em>acier noir mat</em></h3>
+        <p class="body-text">Cloison pleine hauteur acier et verre sur cage d'escalier. Profils fins, vitrage double, portes intégrées. Réalisé pour une maison contemporaine neuve, en collaboration avec l'architecte.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DÉTAIL TECHNIQUE — ENGRENAGES -->
+  <div class="detail-band">
+    <div class="wrap">
+      <div class="detail-band-inner">
+        <div class="detail-photo r">
+          <img src="images/detail-engrenage.jpg"
+               alt="Mécanisme engrenage double chaîne serre — Métallerie Maringer"
+               loading="lazy">
+        </div>
+        <div class="detail-caption r d1">
+          <span class="section-label">Détail de fabrication</span>
+          <h3 class="h3">L'exigence<br><em>dans le détail</em></h3>
+          <p class="body-text">Le mécanisme d'ouverture des fenêtres de la serre — engrenage, double chaîne, contrepoids — est entièrement forgé à l'atelier. Pas de sous-traitance, pas de pièce industrielle : chaque composant est pensé, calculé et fabriqué à la main.</p>
+          <p class="body-text" style="margin-top:1rem;">"Calculé des forces qui tombent pile une fois sur place."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ATELIER -->
+  <section id="atelier">
+    <div class="wrap">
+      <div class="atelier-grid">
+
+        <div class="atelier-img-wrap r">
+          <div class="atelier-img">
+            <img src="images/henri-soude.jpg"
+                 alt="Henri Maringer à l'atelier — soudure"
+                 loading="lazy">
+          </div>
+          <div class="atelier-badge" aria-hidden="true">
+            <span class="badge-num">15+</span>
+            <span class="badge-label">ans<br>d'expérience</span>
+          </div>
+        </div>
+
+        <div class="r d1" style="padding-top:.5rem;">
+          <span class="section-label">L'Atelier</span>
+          <h2 class="h2">Un métier,<br><em>une exigence</em></h2>
+          <p class="body-text">Compagnon du Tour de France, Henri Maringer a forgé son savoir-faire pendant plus de quinze ans à travers la France et au-delà. Son atelier alsacien est le lieu où chaque projet prend forme — de la conception 3D au calcul des charges, jusqu'à l'assemblage sur site.</p>
+          <p class="body-text" style="margin-top:1rem;">Petite structure par choix. Chaque pièce sort des mains de l'artisan qui l'a pensée.</p>
+
+          <div class="atelier-values">
+            <div class="atelier-val">
+              <div class="atelier-dot"></div>
+              <span class="atelier-val-text">Conception 3D et calcul de charges avant toute fabrication</span>
+            </div>
+            <div class="atelier-val">
+              <div class="atelier-dot"></div>
+              <span class="atelier-val-text">Finitions anciennes : patine, sablage, galvanisation, masticage à l'ancienne</span>
+            </div>
+            <div class="atelier-val">
+              <div class="atelier-dot"></div>
+              <span class="atelier-val-text">Mécanismes sur mesure : engrenages, contrepoids, double chaîne</span>
+            </div>
+            <div class="atelier-val">
+              <div class="atelier-dot"></div>
+              <span class="atelier-val-text">Mariage acier, fonte forgée et bois — selon la nature du projet</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FACEBOOK CTA -->
+  <div class="fb-cta">
+    <div class="wrap r">
+      <span class="section-label">Réalisations</span>
+      <h2 class="fb-cta-title">Toutes les réalisations<br>sont sur Facebook</h2>
+      <p class="fb-cta-sub">Photos de chantiers, détails de fabrication, projets en cours — régulièrement mis à jour.</p>
+      <a href="https://www.facebook.com/metalleriemaringer"
+         target="_blank"
+         rel="noopener"
+         class="btn btn-ivory">
+        Voir la page Facebook →
+      </a>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-grid">
+
+        <div class="r">
+          <span class="section-label">Contact</span>
+          <h2 class="h2">Un projet<br><em>en tête ?</em></h2>
+          <p class="body-text">Décrivez-nous votre projet — même approximativement. Henri vous répondra pour discuter des possibilités, des délais et des contraintes techniques.</p>
+          <div class="contact-meta">
+            <div class="contact-meta-item">
+              <label>Zone d'intervention</label>
+              <span>Alsace &amp; environs</span>
+            </div>
+            <div class="contact-meta-item">
+              <label>Suivre les réalisations</label>
+              <span>
+                <a href="https://www.facebook.com/metalleriemaringer"
+                   target="_blank" rel="noopener"
+                   style="text-decoration:underline;text-underline-offset:3px;">
+                  Facebook — Métallerie Maringer
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Remplace VOTRE_ID_FORMSPREE par ton ID Formspree (formspree.io) -->
+        <form class="contact-form r d1"
+              action="https://formspree.io/f/VOTRE_ID_FORMSPREE"
+              method="POST">
+          <div class="form-row">
+            <div class="field">
+              <label for="nom">Nom *</label>
+              <input type="text" id="nom" name="nom" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="projet">Type de projet</label>
+            <select id="projet" name="projet">
+              <option value="">— Choisir —</option>
+              <option>Serre / Véranda</option>
+              <option>Verrière intérieure</option>
+              <option>Escalier</option>
+              <option>Garde-corps / Portail</option>
+              <option>Mobilier métal</option>
+              <option>Pergola / Claustra</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="5"
+                      placeholder="Décrivez votre projet, localisation, contraintes particulières…"
+                      required></textarea>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-bordeaux">Envoyer →</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#top" class="footer-logo" aria-label="Retour en haut">
+      <img src="images/logo.png" alt="Métallerie Maringer">
+    </a>
+    <p class="footer-copy">© 2026 Métallerie Maringer · Alsace</p>
+    <a href="https://www.facebook.com/metalleriemaringer"
+       target="_blank" rel="noopener"
+       class="footer-link">
+      Facebook →
+    </a>
+  </footer>
+
+  <script>
+    // Nav sticky
+    const nav = document.getElementById('nav');
+    function updateNav() {
+      nav.classList.toggle('stuck', window.scrollY > 60);
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.r');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('on');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    reveals.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
