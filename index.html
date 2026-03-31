@@ -11,7 +11,7 @@
   <meta property="og:description" content="Serres, verrières, escaliers, garde-corps et mobilier sur mesure. Compagnon du Tour de France.">
   <meta property="og:url" content="https://metalleriemaringer.fr/">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://metalleriemaringer.fr/images/hero-serre-atelier.jpg">
+  <meta property="og:image" content="https://metalleriemaringer.fr/images/hero-serre-atelier.webp">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -77,7 +77,7 @@
       object-fit: contain;
       transition: filter .35s;
     }
-    nav:not(.stuck) .nav-logo img { filter: brightness(0) invert(1); }
+    /* logo fond transparent — fonctionne sur fond clair et sombre sans filtre */
     .nav-links {
       display: flex;
       gap: 2.5rem;
@@ -582,8 +582,7 @@
       height: 40px;
       width: auto;
       object-fit: contain;
-      filter: brightness(0) invert(1);
-      opacity: .5;
+      opacity: .75;
     }
     .footer-copy {
       font-size: .65rem;
@@ -654,7 +653,7 @@
   <!-- NAV -->
   <nav id="nav">
     <a href="#" class="nav-logo" aria-label="Métallerie Maringer — Accueil">
-      <img src="images/logo.png" alt="Logo Métallerie Maringer">
+      <img src="imageslogo-sans-fond.png" alt="Logo Métallerie Maringer">
     </a>
     <ul class="nav-links">
       <li><a href="#accueil-section">Accueil</a></li>
@@ -667,7 +666,7 @@
   <!-- HERO -->
   <section class="hero" id="top">
     <div class="hero-bg">
-      <img src="images/hero-serre-atelier.jpg"
+      <img src="imageshero-serre-atelier.webp"
            alt="Serre acier cintrée en fabrication à l'atelier Maringer"
            loading="eager"
            fetchpriority="high">
@@ -697,7 +696,7 @@
         <div class="quote-block r d2">
           <span class="quote-mark" aria-hidden="true">"</span>
           <p class="quote-text">Des idées et des solutions, surtout si personne n'y arrive. Une vision pour votre projet, même si vous n'arrivez pas encore à le formuler.</p>
-          <p class="quote-attr">Henri Maringer — Métallier forgeron</p>
+          <p class="quote-attr">Henri Dollinger — Métallier forgeron</p>
         </div>
 
       </div>
@@ -750,7 +749,7 @@
     <!-- SERRE POSÉE -->
     <div class="split">
       <div class="split-img r">
-        <img src="images/serre-posee.jpg"
+        <img src="imagesserre-posee.webp"
              alt="Serre acier cintrée posée sur chantier — Métallerie Maringer"
              loading="lazy">
       </div>
@@ -764,7 +763,7 @@
     <!-- GARDE-CORPS COLOMBAGE -->
     <div class="split flip">
       <div class="split-img r">
-        <img src="images/garde-corps-colombage.jpg"
+        <img src="imagesgarde-corps-colombage.webp"
              alt="Garde-corps forgé sur colombage alsacien — Métallerie Maringer"
              loading="lazy">
       </div>
@@ -778,7 +777,7 @@
     <!-- PIÈTEMENT BRONZE -->
     <div class="split">
       <div class="split-img r">
-        <img src="images/pietement-bronze.jpg"
+        <img src="imagespietement-bronze.webp"
              alt="Piètement bronze sculpté — mobilier sur mesure Métallerie Maringer"
              loading="lazy">
       </div>
@@ -792,7 +791,7 @@
     <!-- VERRIÈRE INTÉRIEURE -->
     <div class="split flip">
       <div class="split-img r">
-        <img src="images/verriere-interieure.jpg"
+        <img src="imagesverriere-interieure.webp"
              alt="Verrière intérieure acier noir — Métallerie Maringer"
              loading="lazy">
       </div>
@@ -810,7 +809,7 @@
     <div class="wrap">
       <div class="detail-band-inner">
         <div class="detail-photo r">
-          <img src="images/detail-engrenage.jpg"
+          <img src="imagesdetail-engrenage.webp"
                alt="Mécanisme engrenage double chaîne serre — Métallerie Maringer"
                loading="lazy">
         </div>
@@ -831,8 +830,8 @@
 
         <div class="atelier-img-wrap r">
           <div class="atelier-img">
-            <img src="images/henri-soude.jpg"
-                 alt="Henri Maringer à l'atelier — soudure"
+            <img src="imageshenri-soude.webp"
+                 alt="Henri Dollinger à l'atelier — soudure"
                  loading="lazy">
           </div>
           <div class="atelier-badge" aria-hidden="true">
@@ -844,7 +843,7 @@
         <div class="r d1" style="padding-top:.5rem;">
           <span class="section-label">L'Atelier</span>
           <h2 class="h2">Un métier,<br><em>une exigence</em></h2>
-          <p class="body-text">Compagnon du Tour de France, Henri Maringer a forgé son savoir-faire pendant plus de quinze ans à travers la France et au-delà. Son atelier alsacien est le lieu où chaque projet prend forme — de la conception 3D au calcul des charges, jusqu'à l'assemblage sur site.</p>
+          <p class="body-text">Compagnon du Tour de France, Henri Dollinger a forgé son savoir-faire pendant plus de quinze ans à travers la France et au-delà. Son atelier alsacien est le lieu où chaque projet prend forme — de la conception 3D au calcul des charges, jusqu'à l'assemblage sur site.</p>
           <p class="body-text" style="margin-top:1rem;">Petite structure par choix. Chaque pièce sort des mains de l'artisan qui l'a pensée.</p>
 
           <div class="atelier-values">
@@ -897,11 +896,19 @@
           <p class="body-text">Décrivez-nous votre projet — même approximativement. Henri vous répondra pour discuter des possibilités, des délais et des contraintes techniques.</p>
           <div class="contact-meta">
             <div class="contact-meta-item">
-              <label>Zone d'intervention</label>
-              <span>Alsace &amp; environs</span>
+              <label>Téléphone</label>
+              <span><a href="tel:+33632399642" style="text-decoration:none;">06 32 39 96 42</a></span>
             </div>
             <div class="contact-meta-item">
-              <label>Suivre les réalisations</label>
+              <label>Email</label>
+              <span><a href="/cdn-cgi/l/email-protection#5c3f3332283d3f281c3139283d3030392e3539313d2e35323b392e723f3331" style="text-decoration:underline;text-underline-offset:3px;"><span class="__cf_email__" data-cfemail="0c6f6362786d6f784c6169786d6060697e6569616d7e65626b697e226f6361">[email&#160;protected]</span></a></span>
+            </div>
+            <div class="contact-meta-item">
+              <label>Adresse</label>
+              <span>10 Rue de la Croix<br>67310 Westhoffen, Alsace</span>
+            </div>
+            <div class="contact-meta-item">
+              <label>Réalisations</label>
               <span>
                 <a href="https://www.facebook.com/metalleriemaringer"
                    target="_blank" rel="noopener"
@@ -913,10 +920,10 @@
           </div>
         </div>
 
-        <!-- Remplace VOTRE_ID_FORMSPREE par ton ID Formspree (formspree.io) -->
         <form class="contact-form r d1"
-              action="https://formspree.io/f/VOTRE_ID_FORMSPREE"
-              method="POST">
+              action="mailto:contact@metalleriemaringer.com"
+              method="POST"
+              enctype="text/plain">
           <div class="form-row">
             <div class="field">
               <label for="nom">Nom *</label>
@@ -958,7 +965,7 @@
   <!-- FOOTER -->
   <footer>
     <a href="#top" class="footer-logo" aria-label="Retour en haut">
-      <img src="images/logo.png" alt="Métallerie Maringer">
+      <img src="imageslogo-sans-fond.png" alt="Métallerie Maringer">
     </a>
     <p class="footer-copy">© 2026 Métallerie Maringer · Alsace</p>
     <a href="https://www.facebook.com/metalleriemaringer"
@@ -968,7 +975,7 @@
     </a>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Nav sticky
     const nav = document.getElementById('nav');
     function updateNav() {
@@ -980,14 +987,4 @@
     // Reveal on scroll
     const reveals = document.querySelectorAll('.r');
     const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('on');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-    reveals.forEach(el => io.observe(el));
-  </script>
-</body>
-</html>
+      entries.forEach(
