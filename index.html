@@ -106,16 +106,42 @@
       border-bottom-color: var(--rule);
       box-shadow: 0 2px 24px rgba(0,0,0,.08);
     }
-    .nav-logo { line-height: 0; }
+    .nav-logo {
+      line-height: 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+    }
     .nav-logo img {
-      height: 42px;
+      height: 64px;
       width: auto;
       object-fit: contain;
-      transition: filter .4s, transform .3s;
-      filter: brightness(0) invert(1);
+      transition: transform .3s;
+      filter: none;
     }
-    nav.stuck .nav-logo img { filter: none; }
     .nav-logo:hover img { transform: scale(1.05); }
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .95rem;
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #fff;
+      transition: color .35s;
+    }
+    .nav-brand em {
+      font-style: italic;
+      font-weight: 300;
+      color: #c8a882;
+      display: block;
+      font-size: 1.1rem;
+      text-transform: none;
+      letter-spacing: .04em;
+    }
+    nav.stuck .nav-brand { color: var(--marine); }
+    nav.stuck .nav-brand em { color: var(--bordeaux); }
     /* Logo héro centré grand */
     .hero-logo {
       position: absolute;
@@ -127,7 +153,7 @@
       pointer-events: none;
     }
     .hero-logo img {
-      width: min(280px, 38vw);
+      width: min(340px, 44vw);
       height: auto;
       filter: brightness(0) invert(1);
       opacity: .92;
@@ -894,6 +920,7 @@
   <nav id="nav">
     <a href="#" class="nav-logo" aria-label="Métallerie Maringer - Accueil">
       <img src="imageslogo-sans-fond.png" alt="Logo Métallerie Maringer">
+      <span class="nav-brand">Métallerie<br><em>Maringer</em></span>
     </a>
     <ul class="nav-links">
       <li><a href="#accueil-section">Accueil</a></li>
@@ -1078,21 +1105,28 @@
 
   </div>
 
-  <!-- DÉTAIL TECHNIQUE - ENGRENAGES -->
-  <div class="detail-band">
-    <div class="wrap">
-      <div class="detail-band-inner">
-        <div class="detail-photo r">
-          <img src="imagesdetail-engrenage.webp"
-               alt="Mécanisme engrenage double chaîne serre - Métallerie Maringer"
-               loading="lazy">
+  <!-- DÉTAIL FORGE -->
+  <div class="forge-section">
+    <div class="forge-inner">
+      <div class="forge-left r slide-left">
+        <div class="forge-photo-wrap">
+          <div class="forge-photo-inner">
+            <img src="imagesdetail-engrenage.webp"
+                 alt="Mécanisme engrenage serre - Métallerie Maringer"
+                 loading="lazy">
+          </div>
+          <span class="forge-tag">Détail d'atelier</span>
         </div>
-        <div class="detail-caption r d1">
-          <span class="section-label">Détail de fabrication</span>
-          <h3 class="h3">L'exigence<br><em>dans le détail</em></h3>
-          <p class="body-text">Le mécanisme d'ouverture des fenêtres de la serre - engrenage, double chaîne, contrepoids - est conçu, calculé et assemblé à l'atelier. Chaque système est pensé sur mesure pour le chantier : les charges, les effets de torsion, l'équilibre. Rien n'est laissé au hasard.</p>
-          <p class="body-text" style="margin-top:1rem;">"Calculé des forces qui tombent pile une fois sur place."</p>
+      </div>
+      <div class="forge-right r slide-right" style="position:relative;">
+        <div class="forge-eyebrow">
+          <div class="forge-eyebrow-line"></div>
+          <span class="section-label" style="margin:0;color:var(--bordeaux);">Savoir-faire</span>
         </div>
+        <h2 class="forge-title">L'art de<br><em>calculer l'invisible</em></h2>
+        <p class="forge-text">Le mécanisme d'ouverture de la serre - engrenage, double chaîne, contrepoids - est conçu et assemblé à l'atelier. Chaque système est pensé pour son chantier : charges, effets de torsion, équilibre. Le résultat tombe juste une fois sur place.</p>
+        <p class="forge-quote">Le savoir-faire des Compagnons, c'est anticiper ce qu'on ne voit pas encore - et que les calculs confirment une fois sur place.</p>
+        <div class="forge-bg-num" aria-hidden="true">VI</div>
       </div>
     </div>
   </div>
