@@ -114,10 +114,15 @@
       text-decoration: none;
     }
     .nav-logo img {
-      height: 64px;
+      height: 72px;
       width: auto;
       object-fit: contain;
       transition: transform .3s;
+      /* Rend les parties sombres/noires blanches tout en préservant bordeaux et marine */
+      filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(310deg) brightness(1.1);
+    }
+    nav.stuck .nav-logo img {
+      filter: none;
     }
     .nav-logo:hover img { transform: scale(1.05); }
     .nav-brand {
@@ -146,34 +151,74 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -55%);
+      transform: translate(-50%, -52%);
       z-index: 3;
       text-align: center;
-      pointer-events: none;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.25rem;
+      gap: 0;
+      pointer-events: none;
+    }
+    .hero-logo-top {
+      font-size: .6rem;
+      font-weight: 600;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      margin-bottom: .75rem;
+      animation: heroLogoIn 1s .1s cubic-bezier(.16,1,.3,1) both;
+    }
+    .hero-logo-rule {
+      width: 40px;
+      height: 1px;
+      background: rgba(122,23,40,.7);
+      margin: 0 auto .75rem;
+      animation: heroLogoIn .8s .15s cubic-bezier(.16,1,.3,1) both;
     }
     .hero-logo img {
-      width: min(400px, 52vw);
+      width: min(460px, 56vw);
       height: auto;
-      filter: drop-shadow(0 4px 24px rgba(0,0,0,.7));
+      filter: drop-shadow(0 6px 32px rgba(0,0,0,.8));
       animation: heroLogoIn 1.2s .2s cubic-bezier(.16,1,.3,1) both;
+      transition: transform .6s cubic-bezier(.16,1,.3,1), filter .4s;
+      pointer-events: all;
+      cursor: default;
+    }
+    .hero-logo:hover img {
+      transform: scale(1.06);
+      filter: drop-shadow(0 10px 48px rgba(0,0,0,.9)) drop-shadow(0 0 24px rgba(122,23,40,.4));
+    }
+    .hero-logo-rule2 {
+      width: 40px;
+      height: 1px;
+      background: rgba(122,23,40,.7);
+      margin: .75rem auto 0;
+      animation: heroLogoIn .8s .55s cubic-bezier(.16,1,.3,1) both;
     }
     .hero-logo-slogan {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1rem, 2vw, 1.5rem);
+      font-size: clamp(1.1rem, 2.2vw, 1.7rem);
       font-weight: 300;
       font-style: italic;
-      color: rgba(255,255,255,.85);
-      letter-spacing: .12em;
-      text-shadow: 0 2px 12px rgba(0,0,0,.6);
-      animation: heroLogoIn 1s .6s cubic-bezier(.16,1,.3,1) both;
+      color: rgba(255,255,255,.88);
+      letter-spacing: .1em;
+      text-shadow: 0 2px 16px rgba(0,0,0,.7);
+      animation: heroLogoIn 1s .65s cubic-bezier(.16,1,.3,1) both;
       white-space: nowrap;
+      margin-top: .85rem;
+    }
+    .hero-logo-bottom {
+      font-size: .55rem;
+      font-weight: 500;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      margin-top: .6rem;
+      animation: heroLogoIn .8s .8s cubic-bezier(.16,1,.3,1) both;
     }
     @keyframes heroLogoIn {
-      from { opacity: 0; transform: scale(.9) translateY(10px); }
+      from { opacity: 0; transform: scale(.92) translateY(12px); }
       to   { opacity: 1; transform: scale(1) translateY(0); }
     }
     .nav-links {
@@ -319,7 +364,7 @@
     .wrap { max-width: 1160px; margin: 0 auto; padding: 0 3.5rem; }
     .section-label {
       display: block;
-      font-size: .62rem;
+      font-size: .72rem;
       font-weight: 600;
       letter-spacing: .28em;
       text-transform: uppercase;
@@ -850,10 +895,11 @@
       gap: 2rem;
     }
     .footer-logo img {
-      height: 40px;
+      height: 48px;
       width: auto;
       object-fit: contain;
-      opacity: .75;
+      filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(310deg) brightness(1.1);
+      opacity: .85;
     }
     .footer-copy {
       font-size: .65rem;
@@ -951,15 +997,16 @@
            fetchpriority="high">
     </div>
     <div class="hero-veil"></div>
-    <div class="hero-logo" aria-hidden="true">
-      <img src="imageslogo-sans-fond.png" alt="">
+    <div class="hero-logo">
+      <span class="hero-logo-top">Alsace · Compagnons du Tour de France</span>
+      <div class="hero-logo-rule"></div>
+      <img src="imageslogo-sans-fond.png" alt="Métallerie Maringer">
+      <div class="hero-logo-rule2"></div>
       <span class="hero-logo-slogan">Le métallier de tous vos projets</span>
+      <span class="hero-logo-bottom">Métallier forgeron · Plus de 15 ans d'expérience</span>
     </div>
     <div class="hero-body">
-      <p class="hero-eyebrow">Alsace - Métallier forgeron - Compagnons du Tour de France</p>
-      <h1 class="hero-h1"><em>Le métallier<br>de tous vos projets</em></h1>
-      <div class="hero-rule"></div>
-      <p class="hero-sub">Savoir-faire artisanal transmis - ouvrages sur mesure alliant tradition, précision et innovation.</p>
+      <h1 class="hero-h1" style="position:absolute;opacity:0;pointer-events:none;font-size:1px;">Métallerie Maringer - Métallier forgeron en Alsace</h1>
     </div>
     <div class="scroll-cue" aria-hidden="true">Découvrir</div>
   </section>
@@ -1222,7 +1269,8 @@
             </div>
             <div class="contact-meta-item">
               <label>Email</label>
-              <span><a href="/cdn-cgi/l/email-protection#8ae9e5e4feebe9fecae7effeebe6e6eff8e3efe7ebf8e3e4edeff8a4e9e5e7" style="text-decoration:underline;text-underline-offset:3px;"><span class="__cf_email__" data-cfemail="0f6c60617b6e6c7b4f626a7b6e63636a7d666a626e7d6661686a7d216c6062">[email&#160;protected]</span></a></span>
+              <span id="cmail"></span><!-- fallback: -->
+              
             </div>
             <div class="contact-meta-item">
               <label>Adresse</label>
@@ -1299,7 +1347,7 @@
     </a>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Nav sticky
     const nav = document.getElementById('nav');
     function updateNav() {
