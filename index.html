@@ -42,6 +42,19 @@
     }
     window.addEventListener('scroll', heroParallax, { passive: true });
     heroParallax();
+    // Bouton retour en haut
+    var scrollBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        scrollBtn.classList.add('visible');
+      } else {
+        scrollBtn.classList.remove('visible');
+      }
+    }, { passive: true });
+    scrollBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
     // Email anti-obfuscation
     (function(){
       var u='contact', d='metalleriemaringer.com', addr=u+'@'+d;
@@ -118,8 +131,8 @@
       width: auto;
       object-fit: contain;
       transition: transform .3s;
-      /* Rend les parties sombres/noires blanches tout en préservant bordeaux et marine */
-      filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(310deg) brightness(1.1);
+      /* Sur fond sombre : tout en blanc pour lisibilité */
+      filter: brightness(0) invert(1);
     }
     nav.stuck .nav-logo img {
       filter: none;
@@ -161,12 +174,13 @@
       pointer-events: none;
     }
     .hero-logo-top {
-      font-size: .6rem;
+      font-size: .65rem;
       font-weight: 600;
-      letter-spacing: .35em;
+      letter-spacing: .3em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.5);
+      color: rgba(255,255,255,.82);
       margin-bottom: .75rem;
+      text-shadow: 0 1px 8px rgba(0,0,0,.8);
       animation: heroLogoIn 1s .1s cubic-bezier(.16,1,.3,1) both;
     }
     .hero-logo-rule {
@@ -177,7 +191,7 @@
       animation: heroLogoIn .8s .15s cubic-bezier(.16,1,.3,1) both;
     }
     .hero-logo img {
-      width: min(460px, 56vw);
+      width: min(540px, 64vw);
       height: auto;
       filter: drop-shadow(0 6px 32px rgba(0,0,0,.8));
       animation: heroLogoIn 1.2s .2s cubic-bezier(.16,1,.3,1) both;
@@ -186,8 +200,8 @@
       cursor: default;
     }
     .hero-logo:hover img {
-      transform: scale(1.06);
-      filter: drop-shadow(0 10px 48px rgba(0,0,0,.9)) drop-shadow(0 0 24px rgba(122,23,40,.4));
+      transform: scale(1.1) rotate(-1deg);
+      filter: drop-shadow(0 12px 56px rgba(0,0,0,.95)) drop-shadow(0 0 40px rgba(122,23,40,.55)) brightness(1.08);
     }
     .hero-logo-rule2 {
       width: 40px;
@@ -198,23 +212,24 @@
     }
     .hero-logo-slogan {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.1rem, 2.2vw, 1.7rem);
+      font-size: clamp(1.3rem, 2.5vw, 2rem);
       font-weight: 300;
       font-style: italic;
-      color: rgba(255,255,255,.88);
+      color: #fff;
       letter-spacing: .1em;
-      text-shadow: 0 2px 16px rgba(0,0,0,.7);
+      text-shadow: 0 2px 20px rgba(0,0,0,.9), 0 0 40px rgba(0,0,0,.5);
       animation: heroLogoIn 1s .65s cubic-bezier(.16,1,.3,1) both;
       white-space: nowrap;
       margin-top: .85rem;
     }
     .hero-logo-bottom {
-      font-size: .55rem;
+      font-size: .62rem;
       font-weight: 500;
-      letter-spacing: .3em;
+      letter-spacing: .25em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.35);
+      color: rgba(255,255,255,.72);
       margin-top: .6rem;
+      text-shadow: 0 1px 8px rgba(0,0,0,.8);
       animation: heroLogoIn .8s .8s cubic-bezier(.16,1,.3,1) both;
     }
     @keyframes heroLogoIn {
@@ -303,7 +318,7 @@
     }
     .hero-h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.5rem, 6.5vw, 6rem);
+      font-size: clamp(3rem, 5.5vw, 5.5rem);
       font-weight: 300;
       line-height: 1.08;
       color: #fff;
@@ -373,7 +388,7 @@
     }
     .h2 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.4rem, 4vw, 3.8rem);
+      font-size: clamp(2.2rem, 3.8vw, 3.5rem);
       font-weight: 300;
       line-height: 1.15;
       margin-bottom: 1.5rem;
@@ -381,7 +396,7 @@
     .h2 em { font-style: italic; }
     .h3 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.9rem, 3.2vw, 3rem);
+      font-size: clamp(1.8rem, 2.8vw, 2.8rem);
       font-weight: 300;
       line-height: 1.2;
       margin-bottom: 1.25rem;
@@ -898,14 +913,63 @@
       height: 48px;
       width: auto;
       object-fit: contain;
-      filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(310deg) brightness(1.1);
-      opacity: .85;
+      filter: brightness(0) invert(1);
+      opacity: .9;
     }
     .footer-copy {
       font-size: .65rem;
       color: rgba(255,255,255,.28);
       letter-spacing: .08em;
     }
+
+    /* ── BOUTON RETOUR EN HAUT ART NOUVEAU ── */
+    #scroll-top {
+      position: fixed;
+      bottom: 2.5rem;
+      right: 2rem;
+      z-index: 500;
+      width: 52px;
+      height: 72px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .4s ease, transform .4s ease;
+      text-decoration: none;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    #scroll-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #scroll-top svg {
+      width: 52px;
+      height: 72px;
+      transition: transform .5s cubic-bezier(.16,1,.3,1), filter .3s;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,.35));
+    }
+    #scroll-top:hover svg {
+      transform: translateY(-6px) scale(1.08);
+      filter: drop-shadow(0 6px 18px rgba(122,23,40,.55));
+    }
+    #scroll-top .scroll-label {
+      position: absolute;
+      bottom: -1.4rem;
+      font-size: .48rem;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(122,23,40,.7);
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    #scroll-top:hover .scroll-label { opacity: 1; }
     .footer-link {
       font-size: .65rem;
       font-weight: 500;
@@ -933,6 +997,77 @@
     .js-ready .r.d3 { transition-delay: .3s; }
 
     /* ── MOBILE ── */
+    /* ── ANIMATIONS SCROLL SUPPLÉMENTAIRES ── */
+
+    /* Line draw sur les titres */
+    .line-target {
+      position: relative;
+      display: inline-block;
+    }
+    .line-target::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--bordeaux);
+      transition: width 1s cubic-bezier(.16,1,.3,1) .3s;
+    }
+    .line-target.line-drawn::after { width: 30%; }
+    #savoir-faire .line-target::after,
+    .split.flip .line-target::after,
+    .forge-section .line-target::after { background: rgba(122,23,40,.5); }
+
+    /* Stagger amélioré pour les éléments r */
+    .js-ready .r:nth-child(1) { transition-delay: 0s; }
+    .js-ready .r:nth-child(2) { transition-delay: .08s; }
+    .js-ready .r:nth-child(3) { transition-delay: .16s; }
+    .js-ready .r:nth-child(4) { transition-delay: .24s; }
+
+    /* Fade up plus dramatique */
+    .js-ready .r {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1);
+      filter: blur(2px);
+    }
+    .js-ready .r.on {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+    .js-ready .r.slide-left  { transform: translateX(-50px) translateY(0); filter: blur(2px); }
+    .js-ready .r.slide-right { transform: translateX(50px)  translateY(0); filter: blur(2px); }
+    .js-ready .r.scale-in    { transform: scale(.9); filter: blur(3px); }
+    .js-ready .r.slide-left.on,
+    .js-ready .r.slide-right.on,
+    .js-ready .r.scale-in.on { transform: none; filter: blur(0); opacity: 1; }
+
+    /* Metiers : transition opacité */
+    .metier { transition: background .4s, opacity .4s; }
+
+    /* Hover split : overlay bordeaux discret */
+    .split-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(122,23,40,0);
+      transition: background .5s;
+      pointer-events: none;
+    }
+    .split-img:hover::after { background: rgba(122,23,40,.08); }
+    .split-img { position: relative; }
+
+    /* Badge num : transition chiffre */
+    .badge-num { transition: transform .3s; }
+    .atelier-img-wrap:hover .badge-num { transform: scale(1.1); }
+
+    /* Forge photo : transition smooth pour le tilt */
+    .forge-photo-inner img {
+      transition: transform .4s cubic-bezier(.16,1,.3,1), filter .6s;
+    }
+
     @media (max-width: 900px) {
       nav { padding: 1.25rem 1.5rem; }
       nav.stuck { padding: .85rem 1.5rem; }
@@ -1269,7 +1404,7 @@
             </div>
             <div class="contact-meta-item">
               <label>Email</label>
-              <span id="cmail"></span><!-- fallback: -->
+              <span id="cmail"><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#109;&#101;&#116;&#97;&#108;&#108;&#101;&#114;&#105;&#101;&#109;&#97;&#114;&#105;&#110;&#103;&#101;&#114;&#46;&#99;&#111;&#109;" style="text-decoration:underline;text-underline-offset:3px;">contact&#64;metalleriemaringer&#46;com</a></span>
               
             </div>
             <div class="contact-meta-item">
@@ -1347,8 +1482,201 @@
     </a>
   </footer>
 
+  <!-- BOUTON RETOUR EN HAUT ART NOUVEAU -->
+  <button id="scroll-top" aria-label="Revenir en haut de page" title="Haut de page">
+    <svg viewBox="0 0 52 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Fond circulaire semi-transparent -->
+      <circle cx="26" cy="40" r="22" fill="rgba(245,240,234,0.88)" stroke="rgba(122,23,40,0.3)" stroke-width="1"/>
+
+      <!-- Tige centrale verticale -->
+      <line x1="26" y1="58" x2="26" y2="26" stroke="#7a1728" stroke-width="1.2" stroke-linecap="round"/>
+
+      <!-- Volute gauche -->
+      <path d="M26,42 C20,42 15,38 16,32 C17,27 22,26 24,30 C25.5,33 23,35 20,34" 
+            stroke="#7a1728" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+      <!-- Petite feuille gauche -->
+      <path d="M18,34 C16,32 15,29 17,28 C18,30 18.5,32 18,34Z" 
+            fill="rgba(122,23,40,0.35)" stroke="#7a1728" stroke-width=".6"/>
+
+      <!-- Volute droite -->
+      <path d="M26,42 C32,42 37,38 36,32 C35,27 30,26 28,30 C26.5,33 29,35 32,34" 
+            stroke="#7a1728" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+      <!-- Petite feuille droite -->
+      <path d="M34,34 C36,32 37,29 35,28 C34,30 33.5,32 34,34Z" 
+            fill="rgba(122,23,40,0.35)" stroke="#7a1728" stroke-width=".6"/>
+
+      <!-- Flèche forgée vers le haut -->
+      <path d="M20,31 L26,22 L32,31" 
+            stroke="#7a1728" stroke-width="1.6" fill="none" 
+            stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Pointe de flèche renforcée style forgé -->
+      <path d="M23,28 L26,22 L29,28" 
+            stroke="#7a1728" stroke-width="1" fill="none" 
+            stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- Petit ornement bas : cercle + croix compagnon -->
+      <circle cx="26" cy="60" r="3.5" fill="none" stroke="rgba(122,23,40,0.5)" stroke-width="1"/>
+      <line x1="26" y1="57" x2="26" y2="63" stroke="rgba(122,23,40,0.5)" stroke-width=".8"/>
+      <line x1="22.5" y1="60" x2="29.5" y2="60" stroke="rgba(122,23,40,0.5)" stroke-width=".8"/>
+
+      <!-- Points décoratifs latéraux -->
+      <circle cx="8" cy="40" r="1.2" fill="rgba(122,23,40,0.25)"/>
+      <circle cx="44" cy="40" r="1.2" fill="rgba(122,23,40,0.25)"/>
+      <line x1="10" y1="40" x2="14" y2="40" stroke="rgba(122,23,40,0.2)" stroke-width=".8"/>
+      <line x1="38" y1="40" x2="42" y2="40" stroke="rgba(122,23,40,0.2)" stroke-width=".8"/>
+    </svg>
+    <span class="scroll-label">Haut</span>
+  </button>
+
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Nav sticky
-    const nav = document.getElementById('nav');
+    var nav = document.getElementById('nav');
     function updateNav() {
-      nav.classList.toggle('stuck', wind
+      nav.classList.toggle('stuck', window.scrollY > 60);
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    // Active les animations JS (fallback : tout reste visible)
+    document.body.classList.add('js-ready');
+
+    // ── REVEAL ON SCROLL ──
+    var reveals = document.querySelectorAll('.r');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(function(el) { io.observe(el); });
+    } else {
+      reveals.forEach(function(el) { el.classList.add('on'); });
+    }
+
+    // ── BARRE DE PROGRESSION SCROLL ──
+    var progressBar = document.createElement('div');
+    progressBar.style.cssText = 'position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#7a1728,#c8a882);z-index:9999;width:0%;transition:width .1s linear;pointer-events:none;';
+    document.body.appendChild(progressBar);
+    window.addEventListener('scroll', function() {
+      var total = document.documentElement.scrollHeight - window.innerHeight;
+      progressBar.style.width = (window.scrollY / total * 100) + '%';
+    }, { passive: true });
+
+    // ── COMPTEUR ANIMÉ (badge 15+ ans) ──
+    var badge = document.querySelector('.badge-num');
+    if (badge && 'IntersectionObserver' in window) {
+      var badgeIo = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting) {
+          var n = 0;
+          var timer = setInterval(function() {
+            n++; badge.textContent = n + '+';
+            if (n >= 15) clearInterval(timer);
+          }, 80);
+          badgeIo.disconnect();
+        }
+      }, { threshold: 0.5 });
+      badgeIo.observe(badge);
+    }
+
+    // ── SECTION-LABELS : apparition lettre par lettre ──
+    if ('IntersectionObserver' in window) {
+      var labels = document.querySelectorAll('.section-label');
+      var lIo = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            var el = e.target, txt = el.textContent;
+            el.textContent = ''; el.style.opacity = '1';
+            var i = 0;
+            var t = setInterval(function() {
+              el.textContent += txt[i++];
+              if (i >= txt.length) clearInterval(t);
+            }, 38);
+            lIo.unobserve(el);
+          }
+        });
+      }, { threshold: 0.9 });
+      labels.forEach(function(l) { l.style.opacity = '0'; lIo.observe(l); });
+    }
+
+    // ── LINE DRAW SUR LES TITRES ──
+    var headings = document.querySelectorAll('.h2, .h3, .forge-title');
+    headings.forEach(function(h) { h.classList.add('line-target'); });
+    if ('IntersectionObserver' in window) {
+      var hIo = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { e.target.classList.add('line-drawn'); hIo.unobserve(e.target); }
+        });
+      }, { threshold: 0.3 });
+      headings.forEach(function(h) { hIo.observe(h); });
+    }
+
+    // ── METIERS : dimming des autres au hover ──
+    var metiers = document.querySelectorAll('.metier');
+    metiers.forEach(function(m) {
+      m.addEventListener('mouseenter', function() {
+        metiers.forEach(function(o) { if (o !== m) o.style.opacity = '.4'; });
+      });
+      m.addEventListener('mouseleave', function() {
+        metiers.forEach(function(o) { o.style.opacity = '1'; });
+      });
+    });
+
+    // ── TILT PHOTO FORGE ──
+    var fSection = document.querySelector('.forge-section');
+    var fImg = document.querySelector('.forge-photo-inner img');
+    if (fSection && fImg) {
+      fSection.addEventListener('mousemove', function(e) {
+        var r = fSection.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5;
+        var y = (e.clientY - r.top) / r.height - 0.5;
+        fImg.style.transform = 'scale(1.05) rotate(' + (x*1.5) + 'deg) translateY(' + (y*-6) + 'px)';
+      });
+      fSection.addEventListener('mouseleave', function() { fImg.style.transform = ''; });
+    }
+
+    // ── PARALLAXE SPLITS ──
+    var splitImgs = document.querySelectorAll('.split-img img');
+    function parallaxSplits() {
+      splitImgs.forEach(function(img) {
+        var rect = img.closest('.split-img').getBoundingClientRect();
+        var center = rect.top + rect.height / 2 - window.innerHeight / 2;
+        img.style.transform = 'translateY(' + (center * 0.08) + 'px)';
+      });
+    }
+    window.addEventListener('scroll', parallaxSplits, { passive: true });
+    parallaxSplits();
+
+    // ── PARALLAXE HERO ──
+    var heroBg = document.querySelector('.hero-bg img');
+    function heroParallax() {
+      if (heroBg) heroBg.style.transform = 'translateY(' + (window.scrollY * 0.28) + 'px) scale(1.12)';
+    }
+    window.addEventListener('scroll', heroParallax, { passive: true });
+    heroParallax();
+
+    // ── BOUTON RETOUR EN HAUT ──
+    var scrollBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', function() {
+      scrollBtn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    scrollBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ── EMAIL ANTI-OBFUSCATION ──
+    (function(){
+      var u='contact', d='metalleriemaringer.com', addr=u+'@'+d;
+      var el = document.getElementById('cmail');
+      if(el && !el.querySelector('a')){
+        var a = document.createElement('a');
+        a.href = 'mailto:'+addr; a.textContent = addr;
+        a.style.cssText = 'text-decoration:underline;text-underline-offset:3px;';
+        el.appendChild(a);
+      }
+      var fe = document.getElementById('footer-email');
+      if(fe){ fe.href = 'mailto:'+addr; fe.textContent = addr; }
+    })();
+
+  </script>
+</body>
+</html>
