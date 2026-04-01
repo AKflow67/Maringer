@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Métallerie Maringer — Métallier forgeron en Alsace</title>
+  <title>Métallerie Maringer - Métallier forgeron en Alsace</title>
   <meta name="description" content="Métallerie Maringer, métallier forgeron en Alsace. Serres, verrières, escaliers, garde-corps et mobilier sur mesure. Compagnon du Tour de France, plus de 15 ans d'expérience.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://metalleriemaringer.fr/">
-  <meta property="og:title" content="Métallerie Maringer — Métallier forgeron en Alsace">
+  <meta property="og:title" content="Métallerie Maringer - Métallier forgeron en Alsace">
   <meta property="og:description" content="Serres, verrières, escaliers, garde-corps et mobilier sur mesure. Compagnon du Tour de France.">
   <meta property="og:url" content="https://metalleriemaringer.fr/">
   <meta property="og:type" content="website">
@@ -325,99 +325,76 @@
       color: rgba(255,255,255,.35);
     }
 
-    /* ── DOMAINES ── */
+    /* ── SAVOIR-FAIRE ── */
     #savoir-faire {
-      background: var(--black);
-      padding: 7rem 0;
+      background: var(--charcoal);
+      padding: 7rem 0 0;
       overflow: hidden;
-      position: relative;
     }
-    #savoir-faire::before {
-      content: 'MÉTAL';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22vw;
-      font-weight: 300;
-      color: rgba(255,255,255,.022);
-      pointer-events: none;
-      white-space: nowrap;
-      letter-spacing: .1em;
+    .sf-header {
+      padding-bottom: 4rem;
     }
     #savoir-faire .section-label { color: var(--bordeaux); }
     #savoir-faire .h2 { color: #fff; }
-    .domaines-grid {
+    .sf-intro {
+      font-size: .95rem;
+      color: rgba(255,255,255,.45);
+      max-width: 520px;
+      line-height: 1.85;
+      margin-top: -.5rem;
+    }
+    .metiers-list {
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .metier {
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      transition: background .4s;
+    }
+    .metier:hover { background: rgba(255,255,255,.025); }
+    .metier-inner {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: rgba(255,255,255,.06);
-      margin-top: 3.5rem;
-      position: relative;
-    }
-    .domaine {
-      padding: 2.75rem 2.25rem;
-      background: var(--black);
-      transition: background .45s, transform .35s;
+      grid-template-columns: 80px 1fr 44px;
+      align-items: center;
+      gap: 2rem;
+      padding: 2.25rem 3.5rem;
       cursor: default;
-      position: relative;
-      overflow: hidden;
     }
-    .domaine::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(122,23,40,.0) 0%, rgba(122,23,40,.25) 100%);
-      opacity: 0;
-      transition: opacity .45s;
-    }
-    .domaine::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--bordeaux);
-      transition: width .5s ease;
-    }
-    .domaine:hover { transform: translateY(-4px); }
-    .domaine:hover::before { opacity: 1; }
-    .domaine:hover::after { width: 100%; }
-    .domaine:hover .d-num { color: rgba(122,23,40,.35); }
-    .domaine:hover .d-name { color: #fff; letter-spacing: .2em; }
-    .d-num {
+    .metier-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 4rem;
+      font-size: 1.1rem;
       font-weight: 300;
-      line-height: 1;
-      color: rgba(255,255,255,.05);
-      margin-bottom: 1.25rem;
-      transition: color .45s;
+      color: var(--bordeaux);
+      letter-spacing: .1em;
+      opacity: .7;
     }
-    .d-name {
-      font-size: .7rem;
-      font-weight: 600;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.85);
-      margin-bottom: .85rem;
-      transition: letter-spacing .4s, color .3s;
+    .metier-content { display: flex; gap: 3rem; align-items: baseline; }
+    .metier-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 300;
+      color: #fff;
+      white-space: nowrap;
+      min-width: 240px;
+      transition: color .3s, letter-spacing .4s;
     }
-    .d-desc {
+    .metier:hover .metier-name { color: rgba(255,255,255,.7); letter-spacing: .02em; }
+    .metier-desc {
       font-size: .82rem;
       color: rgba(255,255,255,.35);
       line-height: 1.75;
+      transition: color .3s;
     }
-    /* Animation entrée domaines */
-    .domaine.anim-in {
-      animation: domainIn .6s ease forwards;
+    .metier:hover .metier-desc { color: rgba(255,255,255,.5); }
+    .metier-line {
+      width: 24px;
+      height: 1px;
+      background: var(--bordeaux);
+      opacity: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: opacity .3s, transform .4s ease;
     }
-    @keyframes domainIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    .metier:hover .metier-line { opacity: 1; transform: scaleX(1); }
 
     /* ── SPLITS ── */
     .splits { }
@@ -738,8 +715,11 @@
       #accueil-section { padding: 4.5rem 0; }
       .intro-grid { grid-template-columns: 1fr; gap: 3rem; }
 
-      #savoir-faire { padding: 4.5rem 0; }
-      .domaines-grid { grid-template-columns: 1fr 1fr; }
+      #savoir-faire { padding: 4.5rem 0 0; }
+      .metier-inner { grid-template-columns: 44px 1fr; gap: 1rem; padding: 1.5rem; }
+      .metier-line { display: none; }
+      .metier-content { flex-direction: column; gap: .5rem; }
+      .metier-name { white-space: normal; min-width: 0; font-size: 1.25rem; }
 
       .split { grid-template-columns: 1fr; min-height: auto; }
       .split-img { aspect-ratio: 4/3; }
@@ -766,7 +746,7 @@
 
   <!-- NAV -->
   <nav id="nav">
-    <a href="#" class="nav-logo" aria-label="Métallerie Maringer — Accueil">
+    <a href="#" class="nav-logo" aria-label="Métallerie Maringer - Accueil">
       <img src="imageslogo-sans-fond.png" alt="Logo Métallerie Maringer">
     </a>
     <ul class="nav-links">
@@ -787,10 +767,10 @@
     </div>
     <div class="hero-veil"></div>
     <div class="hero-body">
-      <p class="hero-eyebrow">Alsace · Métallier forgeron · Compagnons du Tour de France</p>
+      <p class="hero-eyebrow">Alsace - Métallier forgeron - Compagnons du Tour de France</p>
       <h1 class="hero-h1">Le métal,<br><em>à la mesure<br>de vos projets</em></h1>
       <div class="hero-rule"></div>
-      <p class="hero-sub">Des solutions là où personne n'y arrive — depuis plus de 15 ans.</p>
+      <p class="hero-sub">Le métallier de tous vos projets.</p>
     </div>
     <div class="scroll-cue" aria-hidden="true">Découvrir</div>
   </section>
@@ -803,14 +783,14 @@
         <div class="r">
           <span class="section-label">Métallerie Maringer</span>
           <h2 class="h2">Un atelier.<br><em>Toutes les solutions.</em></h2>
-          <p class="body-text">Serres d'exception, verrières intérieures, escaliers acier-bois, garde-corps forgés, portails, pergolas, mobilier — chaque projet naît à l'atelier, en Alsace, et rejoint son chantier calculé au millimètre.</p>
-          <p class="body-text">Petite structure par choix. Les outils parlent d'eux-mêmes.</p>
+          <p class="body-text">Serres, verrières, escaliers, garde-corps, portails, pergolas, mobilier acier - chaque ouvrage est conçu et fabriqué à l'atelier, en Alsace, dans le respect des gestes et des techniques transmis par les Compagnons du Tour de France.</p>
+          <p class="body-text">Un savoir-faire artisanal au service de vos projets, des plus simples aux plus complexes.</p>
         </div>
 
         <div class="quote-block r d2">
           <span class="quote-mark" aria-hidden="true">"</span>
-          <p class="quote-text">Des idées et des solutions, surtout si personne n'y arrive. Une vision pour votre projet, même si vous n'arrivez pas encore à le formuler.</p>
-          <p class="quote-attr">Henri Dollinger — Métallier forgeron</p>
+          <p class="quote-text">Perpétuer un savoir-faire artisanal reconnu, transmis et enrichi au fil des années. Concevoir et réaliser des ouvrages sur mesure, alliant tradition, précision et innovation.</p>
+          <p class="quote-attr">Métallerie Maringer - Alsace</p>
         </div>
 
       </div>
@@ -819,39 +799,70 @@
 
   <!-- SAVOIR-FAIRE -->
   <section id="savoir-faire">
-    <div class="wrap">
+    <div class="sf-header wrap">
       <span class="section-label r">Savoir-faire</span>
-      <h2 class="h2 r d1">Ce que nous<br><em>réalisons</em></h2>
-      <div class="domaines-grid">
-        <div class="domaine r">
-          <div class="d-num">01</div>
-          <p class="d-name">Serres &amp; Vérandas</p>
-          <p class="d-desc">Structure acier cintrée, vitrages, mécanismes d'ouverture par engrenage et double chaîne. Entièrement fabriquée à l'atelier.</p>
+      <h2 class="h2 r d1">Des ouvrages forgés<br><em>dans la tradition</em></h2>
+      <p class="sf-intro r d2">De la conception à la pose, chaque réalisation porte la marque d'un artisanat transmis et perpétué - gestes anciens, exigences contemporaines.</p>
+    </div>
+    <div class="metiers-list">
+      <div class="metier r">
+        <div class="metier-inner">
+          <div class="metier-num">01</div>
+          <div class="metier-content">
+            <h3 class="metier-name">Serres &amp; Vérandas</h3>
+            <p class="metier-desc">Structure acier cintrée, vitrages, mécanismes d'ouverture conçus et assemblés à l'atelier. Chaque serre est une pièce unique, calculée pour son emplacement et ses usages.</p>
+          </div>
+          <div class="metier-line"></div>
         </div>
-        <div class="domaine r d1">
-          <div class="d-num">02</div>
-          <p class="d-name">Verrières intérieures</p>
-          <p class="d-desc">Cloisons acier et verre, portes vitrées, séparations lumineuses pour architectures contemporaines ou patrimoniales.</p>
+      </div>
+      <div class="metier r d1">
+        <div class="metier-inner">
+          <div class="metier-num">02</div>
+          <div class="metier-content">
+            <h3 class="metier-name">Verrières &amp; Portes</h3>
+            <p class="metier-desc">Cloisons acier et verre, portes vitrées, séparations lumineuses. Le noir mat du métal dialogue avec la pierre, le bois et la lumière - quelle que soit l'époque du bâtiment.</p>
+          </div>
+          <div class="metier-line"></div>
         </div>
-        <div class="domaine r d2">
-          <div class="d-num">03</div>
-          <p class="d-name">Escaliers</p>
-          <p class="d-desc">Limons acier, marches bois massif, rampes forgées. Calculés et adaptés à chaque structure existante.</p>
+      </div>
+      <div class="metier r d2">
+        <div class="metier-inner">
+          <div class="metier-num">03</div>
+          <div class="metier-content">
+            <h3 class="metier-name">Escaliers</h3>
+            <p class="metier-desc">Limons acier, marches bois massif, rampes forgées selon les gestes anciens. Chaque escalier est adapté à la structure existante, calculé pour ses charges réelles.</p>
+          </div>
+          <div class="metier-line"></div>
         </div>
-        <div class="domaine r">
-          <div class="d-num">04</div>
-          <p class="d-name">Garde-corps &amp; Portails</p>
-          <p class="d-desc">Ferronnerie forgée, patine, galvanisation, masticage à l'ancienne. Toutes finitions, toutes architectures.</p>
+      </div>
+      <div class="metier r">
+        <div class="metier-inner">
+          <div class="metier-num">04</div>
+          <div class="metier-content">
+            <h3 class="metier-name">Garde-corps &amp; Portails</h3>
+            <p class="metier-desc">Ferronnerie forgée dans la tradition des Compagnons. Patine, sablage, galvanisation, masticage à l'ancienne - les finitions d'autrefois au service de l'ouvrage d'aujourd'hui.</p>
+          </div>
+          <div class="metier-line"></div>
         </div>
-        <div class="domaine r d1">
-          <div class="d-num">05</div>
-          <p class="d-name">Mobilier métal</p>
-          <p class="d-desc">Tables, piètements sculptés, structures complexes. Mariage du métal et du bois, conçus pour durer.</p>
+      </div>
+      <div class="metier r d1">
+        <div class="metier-inner">
+          <div class="metier-num">05</div>
+          <div class="metier-content">
+            <h3 class="metier-name">Mobilier &amp; Sculpture métal</h3>
+            <p class="metier-desc">Tables, piètements, structures complexes - pièces uniques nées de la maîtrise du métal et du feu. Le mobilier comme prolongement naturel du geste artisanal.</p>
+          </div>
+          <div class="metier-line"></div>
         </div>
-        <div class="domaine r d2">
-          <div class="d-num">06</div>
-          <p class="d-name">Pergolas &amp; Claustras</p>
-          <p class="d-desc">Structures extérieures sur mesure, calculées pour résister aux charges et aux intempéries alsaciennes.</p>
+      </div>
+      <div class="metier r d2">
+        <div class="metier-inner">
+          <div class="metier-num">06</div>
+          <div class="metier-content">
+            <h3 class="metier-name">Pergolas &amp; Claustras</h3>
+            <p class="metier-desc">Structures extérieures sur mesure, conçues pour résister aux années et aux intempéries alsaciennes. Précision du calcul, soin de l'assemblage.</p>
+          </div>
+          <div class="metier-line"></div>
         </div>
       </div>
     </div>
@@ -864,7 +875,7 @@
     <div class="split">
       <div class="split-img r slide-left">
         <img src="imagesserre-posee.webp"
-             alt="Serre acier cintrée posée sur chantier — Métallerie Maringer"
+             alt="Serre acier cintrée posée sur chantier - Métallerie Maringer"
              loading="lazy">
       </div>
       <div class="split-content r slide-right d1">
@@ -878,7 +889,7 @@
     <div class="split flip">
       <div class="split-img r slide-right">
         <img src="imagesgarde-corps-colombage.webp"
-             alt="Garde-corps forgé sur colombage alsacien — Métallerie Maringer"
+             alt="Garde-corps forgé sur colombage alsacien - Métallerie Maringer"
              loading="lazy">
       </div>
       <div class="split-content r d1">
@@ -892,7 +903,7 @@
     <div class="split">
       <div class="split-img r slide-left">
         <img src="imagespietement-bronze.webp"
-             alt="Piètement bronze sculpté — mobilier sur mesure Métallerie Maringer"
+             alt="Piètement bronze sculpté - mobilier sur mesure Métallerie Maringer"
              loading="lazy">
       </div>
       <div class="split-content r d1">
@@ -906,7 +917,7 @@
     <div class="split flip">
       <div class="split-img r slide-right">
         <img src="imagesverriere-interieure.webp"
-             alt="Verrière intérieure acier noir — Métallerie Maringer"
+             alt="Verrière intérieure acier noir - Métallerie Maringer"
              loading="lazy">
       </div>
       <div class="split-content r d1">
@@ -918,19 +929,19 @@
 
   </div>
 
-  <!-- DÉTAIL TECHNIQUE — ENGRENAGES -->
+  <!-- DÉTAIL TECHNIQUE - ENGRENAGES -->
   <div class="detail-band">
     <div class="wrap">
       <div class="detail-band-inner">
         <div class="detail-photo r">
           <img src="imagesdetail-engrenage.webp"
-               alt="Mécanisme engrenage double chaîne serre — Métallerie Maringer"
+               alt="Mécanisme engrenage double chaîne serre - Métallerie Maringer"
                loading="lazy">
         </div>
         <div class="detail-caption r d1">
           <span class="section-label">Détail de fabrication</span>
           <h3 class="h3">L'exigence<br><em>dans le détail</em></h3>
-          <p class="body-text">Le mécanisme d'ouverture des fenêtres de la serre — engrenage, double chaîne, contrepoids — est conçu, calculé et assemblé à l'atelier. Chaque système est pensé sur mesure pour le chantier : les charges, les effets de torsion, l'équilibre. Rien n'est laissé au hasard.</p>
+          <p class="body-text">Le mécanisme d'ouverture des fenêtres de la serre - engrenage, double chaîne, contrepoids - est conçu, calculé et assemblé à l'atelier. Chaque système est pensé sur mesure pour le chantier : les charges, les effets de torsion, l'équilibre. Rien n'est laissé au hasard.</p>
           <p class="body-text" style="margin-top:1rem;">"Calculé des forces qui tombent pile une fois sur place."</p>
         </div>
       </div>
@@ -945,7 +956,7 @@
         <div class="atelier-img-wrap r scale-in">
           <div class="atelier-img">
             <img src="imageshenri-soude.webp"
-                 alt="Henri Dollinger à l'atelier — soudure"
+                 alt="Henri Dollinger à l'atelier - soudure"
                  loading="lazy">
           </div>
           <div class="atelier-badge" aria-hidden="true">
@@ -957,7 +968,7 @@
         <div class="r d1" style="padding-top:.5rem;">
           <span class="section-label">L'Atelier</span>
           <h2 class="h2">Un métier,<br><em>une exigence</em></h2>
-          <p class="body-text">Après sa formation chez les Compagnons du Tour de France, Henri Dollinger a forgé son savoir-faire pendant plus de quinze ans sur des monuments historiques, des pièces uniques, des chantiers exigeant réflexion et maîtrise technique. Son atelier alsacien est le lieu où chaque projet prend forme — de la conception 3D au calcul des charges, jusqu'à l'assemblage sur site.</p>
+          <p class="body-text">Après sa formation chez les Compagnons du Tour de France, Henri Dollinger a forgé son savoir-faire pendant plus de quinze ans sur des monuments historiques, des pièces uniques, des chantiers exigeant réflexion et maîtrise technique. Son atelier alsacien est le lieu où chaque projet prend forme - de la conception 3D au calcul des charges, jusqu'à l'assemblage sur site.</p>
           <p class="body-text" style="margin-top:1rem;">Petite structure par choix. Chaque pièce sort des mains de l'artisan qui l'a pensée.</p>
 
           <div class="atelier-values">
@@ -975,7 +986,7 @@
             </div>
             <div class="atelier-val">
               <div class="atelier-dot"></div>
-              <span class="atelier-val-text">Mariage acier, fonte forgée et bois — selon la nature du projet</span>
+              <span class="atelier-val-text">Mariage acier, fonte forgée et bois - selon la nature du projet</span>
             </div>
           </div>
         </div>
@@ -989,7 +1000,7 @@
     <div class="wrap r">
       <span class="section-label">Réalisations</span>
       <h2 class="fb-cta-title">Toutes les réalisations<br>sont sur Facebook</h2>
-      <p class="fb-cta-sub">Photos de chantiers, détails de fabrication, projets en cours — régulièrement mis à jour.</p>
+      <p class="fb-cta-sub">Photos de chantiers, détails de fabrication, projets en cours - régulièrement mis à jour.</p>
       <a href="https://www.facebook.com/metalleriemaringer"
          target="_blank"
          rel="noopener"
@@ -1007,7 +1018,7 @@
         <div class="r">
           <span class="section-label">Contact</span>
           <h2 class="h2">Un projet<br><em>en tête ?</em></h2>
-          <p class="body-text">Décrivez-nous votre projet — même approximativement. Henri vous répondra pour discuter des possibilités, des délais et des contraintes techniques.</p>
+          <p class="body-text">Décrivez-nous votre projet - même approximativement. Henri vous répondra pour discuter des possibilités, des délais et des contraintes techniques.</p>
           <div class="contact-meta">
             <div class="contact-meta-item">
               <label>Téléphone</label>
@@ -1015,7 +1026,7 @@
             </div>
             <div class="contact-meta-item">
               <label>Email</label>
-              <span><a href="/cdn-cgi/l/email-protection#5c3f3332283d3f281c3139283d3030392e3539313d2e35323b392e723f3331" style="text-decoration:underline;text-underline-offset:3px;"><span class="__cf_email__" data-cfemail="0c6f6362786d6f784c6169786d6060697e6569616d7e65626b697e226f6361">[email&#160;protected]</span></a></span>
+              <span><a href="mailto:contact@metalleriemaringer.com" style="text-decoration:underline;text-underline-offset:3px;">contact@metalleriemaringer.com</a></span>
             </div>
             <div class="contact-meta-item">
               <label>Adresse</label>
@@ -1027,7 +1038,7 @@
                 <a href="https://www.facebook.com/metalleriemaringer"
                    target="_blank" rel="noopener"
                    style="text-decoration:underline;text-underline-offset:3px;">
-                  Facebook — Métallerie Maringer
+                  Facebook - Métallerie Maringer
                 </a>
               </span>
             </div>
@@ -1051,7 +1062,7 @@
           <div class="field">
             <label for="projet">Type de projet</label>
             <select id="projet" name="projet">
-              <option value="">— Choisir —</option>
+              <option value="">- Choisir -</option>
               <option>Serre / Véranda</option>
               <option>Verrière intérieure</option>
               <option>Escalier</option>
