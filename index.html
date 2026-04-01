@@ -60,41 +60,61 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.6rem 3.5rem;
-      transition: padding .35s, background .35s, border-color .35s;
-      border-bottom: 1px solid transparent;
+      padding: 1.4rem 3.5rem;
+      background: rgba(24,22,22,.55);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      transition: padding .4s, background .4s, border-color .4s;
     }
     nav.stuck {
-      background: rgba(245,240,234,.96);
-      backdrop-filter: blur(10px);
+      background: rgba(245,240,234,.97);
+      backdrop-filter: blur(12px);
       padding: 1rem 3.5rem;
       border-bottom-color: var(--rule);
+      box-shadow: 0 2px 24px rgba(0,0,0,.08);
     }
     .nav-logo { line-height: 0; }
     .nav-logo img {
-      height: 44px;
+      height: 48px;
       width: auto;
       object-fit: contain;
-      transition: filter .35s;
+      transition: filter .4s, transform .3s;
+      filter: brightness(0) invert(1);
+      drop-shadow: 0 0 8px rgba(0,0,0,.5);
     }
-    /* logo fond transparent — fonctionne sur fond clair et sombre sans filtre */
+    nav.stuck .nav-logo img {
+      filter: none;
+    }
+    .nav-logo:hover img { transform: scale(1.05); }
     .nav-links {
       display: flex;
       gap: 2.5rem;
       list-style: none;
     }
     .nav-links a {
-      font-size: .7rem;
+      font-size: .68rem;
       font-weight: 500;
-      letter-spacing: .18em;
+      letter-spacing: .2em;
       text-transform: uppercase;
       text-decoration: none;
-      transition: color .2s;
+      transition: color .2s, letter-spacing .3s;
+      color: rgba(255,255,255,.9);
+      position: relative;
     }
-    nav:not(.stuck) .nav-links a { color: rgba(255,255,255,.8); }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--bordeaux);
+      transition: width .3s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
     nav.stuck .nav-links a { color: var(--black); }
-    .nav-links a:hover { color: var(--bordeaux) !important; }
-    .nav-links a.fb { opacity: .65; }
+    .nav-links a:hover { color: var(--bordeaux) !important; letter-spacing: .24em; }
+    .nav-links a.fb { opacity: .7; }
 
     /* ── HERO ── */
     .hero {
@@ -109,9 +129,11 @@
     }
     .hero-bg img {
       width: 100%;
-      height: 100%;
+      height: 120%;
       object-fit: cover;
       object-position: center 20%;
+      will-change: transform;
+      transform: scale(1.1);
     }
     .hero-veil {
       position: absolute;
@@ -140,6 +162,9 @@
       text-transform: uppercase;
       color: rgba(255,255,255,.55);
       margin-bottom: 1.25rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: heroFadeUp .9s .3s cubic-bezier(.16,1,.3,1) forwards;
     }
     .hero-h1 {
       font-family: 'Cormorant Garamond', serif;
@@ -148,20 +173,31 @@
       line-height: 1.08;
       color: #fff;
       margin-bottom: 1.75rem;
+      opacity: 0;
+      transform: translateY(28px);
+      animation: heroFadeUp 1s .55s cubic-bezier(.16,1,.3,1) forwards;
     }
     .hero-h1 em { font-style: italic; }
     .hero-rule {
-      width: 44px;
+      width: 0;
       height: 1px;
       background: var(--bordeaux);
       margin-bottom: 1.5rem;
+      animation: ruleGrow .8s .9s ease forwards;
     }
+    @keyframes ruleGrow { to { width: 44px; } }
     .hero-sub {
       font-size: .9rem;
       font-weight: 300;
       color: rgba(255,255,255,.72);
       max-width: 420px;
       letter-spacing: .04em;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: heroFadeUp .8s 1.1s cubic-bezier(.16,1,.3,1) forwards;
+    }
+    @keyframes heroFadeUp {
+      to { opacity: 1; transform: translateY(0); }
     }
     .scroll-cue {
       position: absolute;
@@ -271,44 +307,96 @@
 
     /* ── DOMAINES ── */
     #savoir-faire {
-      background: var(--charcoal);
-      padding: 6.5rem 0;
+      background: var(--black);
+      padding: 7rem 0;
+      overflow: hidden;
+      position: relative;
     }
-    #savoir-faire .section-label { color: rgba(255,255,255,.35); }
+    #savoir-faire::before {
+      content: 'MÉTAL';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22vw;
+      font-weight: 300;
+      color: rgba(255,255,255,.022);
+      pointer-events: none;
+      white-space: nowrap;
+      letter-spacing: .1em;
+    }
+    #savoir-faire .section-label { color: var(--bordeaux); }
     #savoir-faire .h2 { color: #fff; }
     .domaines-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      border: 1px solid rgba(255,255,255,.08);
+      gap: 1px;
+      background: rgba(255,255,255,.06);
       margin-top: 3.5rem;
+      position: relative;
     }
     .domaine {
-      padding: 2.5rem 2rem;
-      border: 1px solid rgba(255,255,255,.08);
-      transition: background .3s;
+      padding: 2.75rem 2.25rem;
+      background: var(--black);
+      transition: background .45s, transform .35s;
       cursor: default;
+      position: relative;
+      overflow: hidden;
     }
-    .domaine:hover { background: rgba(122,23,40,.18); }
+    .domaine::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(122,23,40,.0) 0%, rgba(122,23,40,.25) 100%);
+      opacity: 0;
+      transition: opacity .45s;
+    }
+    .domaine::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--bordeaux);
+      transition: width .5s ease;
+    }
+    .domaine:hover { transform: translateY(-4px); }
+    .domaine:hover::before { opacity: 1; }
+    .domaine:hover::after { width: 100%; }
+    .domaine:hover .d-num { color: rgba(122,23,40,.35); }
+    .domaine:hover .d-name { color: #fff; letter-spacing: .2em; }
     .d-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
+      font-size: 4rem;
       font-weight: 300;
       line-height: 1;
-      color: rgba(255,255,255,.07);
-      margin-bottom: 1rem;
+      color: rgba(255,255,255,.05);
+      margin-bottom: 1.25rem;
+      transition: color .45s;
     }
     .d-name {
-      font-size: .72rem;
+      font-size: .7rem;
       font-weight: 600;
       letter-spacing: .15em;
       text-transform: uppercase;
-      color: #fff;
-      margin-bottom: .6rem;
+      color: rgba(255,255,255,.85);
+      margin-bottom: .85rem;
+      transition: letter-spacing .4s, color .3s;
     }
     .d-desc {
       font-size: .82rem;
-      color: rgba(255,255,255,.4);
-      line-height: 1.65;
+      color: rgba(255,255,255,.35);
+      line-height: 1.75;
+    }
+    /* Animation entrée domaines */
+    .domaine.anim-in {
+      animation: domainIn .6s ease forwards;
+    }
+    @keyframes domainIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     /* ── SPLITS ── */
@@ -323,12 +411,14 @@
     }
     .split-img img {
       width: 100%;
-      height: 100%;
+      height: 110%;
       object-fit: cover;
       object-position: center;
       transition: transform .9s ease;
+      transform: translateY(0);
+      will-change: transform;
     }
-    .split-img:hover img { transform: scale(1.05); }
+    .split-img:hover img { transform: translateY(-3%) scale(1.04); }
     .split-content {
       display: flex;
       flex-direction: column;
@@ -602,11 +692,31 @@
 
     /* ── REVEAL ── */
     .r {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity .7s ease, transform .7s ease;
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
     }
-    .r.off { opacity: 0; transform: translateY(22px); }
+    .r.on { opacity: 1; transform: translateY(0); }
+    .r.d1 { transition-delay: .12s; }
+    .r.d2 { transition-delay: .24s; }
+    .r.d3 { transition-delay: .36s; }
+    .r.slide-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1);
+    }
+    .r.slide-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1);
+    }
+    .r.slide-left.on, .r.slide-right.on { opacity: 1; transform: translateX(0); }
+    .r.scale-in {
+      opacity: 0;
+      transform: scale(.94);
+      transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
+    }
+    .r.scale-in.on { opacity: 1; transform: scale(1); }
 
     /* ── MOBILE ── */
     @media (max-width: 900px) {
@@ -745,12 +855,12 @@
 
     <!-- SERRE POSÉE -->
     <div class="split">
-      <div class="split-img r">
+      <div class="split-img r slide-left">
         <img src="imagesserre-posee.webp"
              alt="Serre acier cintrée posée sur chantier — Métallerie Maringer"
              loading="lazy">
       </div>
-      <div class="split-content r d1">
+      <div class="split-content r slide-right d1">
         <span class="section-label">Réalisation · Serre</span>
         <h3 class="h3">Serre cintrée<br><em>acier et verre</em></h3>
         <p class="body-text">Entièrement conçue et fabriquée à l'atelier. Structure acier cintré, soubassements ornementaux forgés à la main, système d'ouverture par engrenage double chaîne à contrepoids. Posée millimètre par millimètre, ajustée sur place.</p>
@@ -759,7 +869,7 @@
 
     <!-- GARDE-CORPS COLOMBAGE -->
     <div class="split flip">
-      <div class="split-img r">
+      <div class="split-img r slide-right">
         <img src="imagesgarde-corps-colombage.webp"
              alt="Garde-corps forgé sur colombage alsacien — Métallerie Maringer"
              loading="lazy">
@@ -773,7 +883,7 @@
 
     <!-- PIÈTEMENT BRONZE -->
     <div class="split">
-      <div class="split-img r">
+      <div class="split-img r slide-left">
         <img src="imagespietement-bronze.webp"
              alt="Piètement bronze sculpté — mobilier sur mesure Métallerie Maringer"
              loading="lazy">
@@ -787,7 +897,7 @@
 
     <!-- VERRIÈRE INTÉRIEURE -->
     <div class="split flip">
-      <div class="split-img r">
+      <div class="split-img r slide-right">
         <img src="imagesverriere-interieure.webp"
              alt="Verrière intérieure acier noir — Métallerie Maringer"
              loading="lazy">
@@ -813,7 +923,7 @@
         <div class="detail-caption r d1">
           <span class="section-label">Détail de fabrication</span>
           <h3 class="h3">L'exigence<br><em>dans le détail</em></h3>
-          <p class="body-text">Le mécanisme d'ouverture des fenêtres de la serre — engrenage, double chaîne, contrepoids — est entièrement forgé à l'atelier. Pas de sous-traitance, pas de pièce industrielle : chaque composant est pensé, calculé et fabriqué à la main.</p>
+          <p class="body-text">Le mécanisme d'ouverture des fenêtres de la serre — engrenage, double chaîne, contrepoids — est conçu, calculé et assemblé à l'atelier. Chaque système est pensé sur mesure pour le chantier : les charges, les effets de torsion, l'équilibre. Rien n'est laissé au hasard.</p>
           <p class="body-text" style="margin-top:1rem;">"Calculé des forces qui tombent pile une fois sur place."</p>
         </div>
       </div>
@@ -825,7 +935,7 @@
     <div class="wrap">
       <div class="atelier-grid">
 
-        <div class="atelier-img-wrap r">
+        <div class="atelier-img-wrap r scale-in">
           <div class="atelier-img">
             <img src="imageshenri-soude.webp"
                  alt="Henri Dollinger à l'atelier — soudure"
@@ -840,7 +950,7 @@
         <div class="r d1" style="padding-top:.5rem;">
           <span class="section-label">L'Atelier</span>
           <h2 class="h2">Un métier,<br><em>une exigence</em></h2>
-          <p class="body-text">Compagnon du Tour de France, Henri Dollinger a forgé son savoir-faire pendant plus de quinze ans à travers la France et au-delà. Son atelier alsacien est le lieu où chaque projet prend forme — de la conception 3D au calcul des charges, jusqu'à l'assemblage sur site.</p>
+          <p class="body-text">Après sa formation chez les Compagnons du Tour de France, Henri Dollinger a forgé son savoir-faire pendant plus de quinze ans sur des monuments historiques, des pièces uniques, des chantiers exigeant réflexion et maîtrise technique. Son atelier alsacien est le lieu où chaque projet prend forme — de la conception 3D au calcul des charges, jusqu'à l'assemblage sur site.</p>
           <p class="body-text" style="margin-top:1rem;">Petite structure par choix. Chaque pièce sort des mains de l'artisan qui l'a pensée.</p>
 
           <div class="atelier-values">
