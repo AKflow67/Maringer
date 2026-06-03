@@ -1210,3 +1210,56 @@ footer {
   .legal-modal-content { padding: 1.75rem 1.3rem; }
   .legal-modal-content h2 { font-size: 1.5rem; }
 }
+
+/* ═══ MENU MOBILE (burger) + nettoyage mobile ═══ */
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px; height: 40px;
+  padding: 8px; margin: 0;
+  background: none; border: none; cursor: pointer;
+  z-index: 210;
+}
+.nav-burger span {
+  display: block; width: 24px; height: 2px;
+  background: #fff; border-radius: 2px;
+  transition: transform .3s ease, opacity .3s ease, background .3s ease;
+}
+nav.stuck .nav-burger span { background: var(--black); }
+nav.open .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+nav.open .nav-burger span:nth-child(2) { opacity: 0; }
+nav.open .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 900px) {
+  .nav-burger { display: flex; }
+
+  /* La barre "Découvrir" du hero se superposait sur mobile : on la retire */
+  .scroll-cue { display: none; }
+
+  /* Le menu devient un panneau déroulant plein largeur */
+  .nav-links {
+    display: flex;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(24,22,22,.97);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255,255,255,.08);
+    max-height: 0; overflow: hidden; opacity: 0;
+    transition: max-height .4s ease, opacity .3s ease;
+  }
+  nav.stuck .nav-links { background: rgba(245,240,234,.98); }
+  nav.open .nav-links { max-height: 80vh; opacity: 1; }
+  .nav-links li { width: 100%; }
+  .nav-links a {
+    display: block;
+    padding: 1.1rem 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    font-size: .8rem; letter-spacing: .16em;
+  }
+  nav.stuck .nav-links a { color: var(--black); border-bottom-color: rgba(0,0,0,.06); }
+  .nav-links a.fb { opacity: .85; }
+}

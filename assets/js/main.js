@@ -152,3 +152,19 @@ document.addEventListener('keydown', function(e){
     document.querySelectorAll('.legal-modal').forEach(function(m){ m.style.display = 'none'; });
   }
 });
+
+// ── MENU MOBILE (burger) ──
+var navBurger = document.getElementById('nav-burger');
+if (navBurger && nav) {
+  navBurger.addEventListener('click', function(){
+    var isOpen = nav.classList.toggle('open');
+    navBurger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  // Refermer le menu quand on clique un lien
+  nav.querySelectorAll('.nav-links a').forEach(function(link){
+    link.addEventListener('click', function(){
+      nav.classList.remove('open');
+      navBurger.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
