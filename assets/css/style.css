@@ -218,9 +218,9 @@
       inset: 0;
       background: linear-gradient(
         150deg,
-        rgba(24,22,22,.72) 0%,
-        rgba(24,22,22,.38) 55%,
-        rgba(24,22,22,.12) 100%
+        rgba(24,22,22,.52) 0%,
+        rgba(24,22,22,.26) 55%,
+        rgba(24,22,22,.06) 100%
       );
     }
     .hero-body {
@@ -1264,3 +1264,66 @@ nav.open .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45d
   nav.stuck .nav-links a { color: var(--black); border-bottom-color: rgba(0,0,0,.06); }
   .nav-links a.fb { opacity: .85; }
 }
+
+/* ═══ REFONTE 2026-07 — 5 pages, catégories savoir-faire, contact accueil ═══ */
+
+/* Boutons CTA multiples (Facebook + Instagram) */
+.cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* Aperçu : 4 portes au lieu de 3 */
+.apercu-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+@media (max-width: 1100px) { .apercu-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .apercu-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+/* Savoir-faire : noms de catégories longs + listes de réalisations associées */
+@media (min-width: 901px) {
+  .metier-name { white-space: normal; min-width: 280px; max-width: 300px; line-height: 1.2; }
+  .metier-content { align-items: flex-start; }
+}
+.metier-body { display: flex; flex-direction: column; gap: 1.1rem; }
+.metier-tags { display: flex; flex-wrap: wrap; gap: .45rem; }
+.metier-tag {
+  font-size: .58rem; font-weight: 500; letter-spacing: .13em; text-transform: uppercase;
+  color: rgba(255,255,255,.5); border: 1px solid rgba(255,255,255,.14);
+  padding: .32rem .68rem; border-radius: 2px; white-space: nowrap;
+  transition: color .3s, border-color .3s;
+}
+.metier:hover .metier-tag { color: rgba(255,255,255,.68); border-color: rgba(255,255,255,.24); }
+
+/* Section contact de la page d'accueil */
+#contact-accueil { padding: 7rem 0; }
+.home-contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
+@media (max-width: 900px) {
+  #contact-accueil { padding: 4.5rem 0; }
+  .home-contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+/* Bandes sombres génériques (page Notre histoire / Atelier) */
+.band-dark { background: var(--charcoal); padding: 6.5rem 0; }
+.band-dark .h2, .band-dark .h3 { color: #fff; }
+.band-dark .body-text { color: rgba(255,255,255,.55); }
+.band-dark .section-label { color: var(--bordeaux); }
+.band-dark .quote-text { color: rgba(255,255,255,.75); }
+.band-dark .quote-attr { color: rgba(255,255,255,.4); }
+
+/* Équipe (page Notre histoire) */
+.team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3.25rem; }
+.team-card {
+  border: 1px solid rgba(24,22,22,.09);
+  background: rgba(255,255,255,.55);
+  padding: 2.1rem 2rem;
+}
+.team-name { font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 400; margin-bottom: .35rem; }
+.team-role {
+  display: block; font-size: .6rem; font-weight: 600; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--bordeaux); margin-bottom: .95rem;
+}
+.team-desc { font-size: .85rem; color: #3e3838; line-height: 1.75; }
+@media (max-width: 700px) { .team-grid { grid-template-columns: 1fr; } }
+
+/* Sections génériques (pages Notre histoire / Atelier) */
+.section-pad { padding: 7rem 0; }
+@media (max-width: 900px) { .section-pad { padding: 4.5rem 0; } }
+.prose-max { max-width: 780px; }
+.two-col-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+@media (max-width: 900px) { .two-col-blocks { grid-template-columns: 1fr; gap: 2.5rem; } }
