@@ -272,25 +272,13 @@ nav#nav.stuck { box-shadow: 0 8px 30px rgba(24, 31, 52, .08); }
   justify-content: center;
 }
 .hero-bg { position: absolute; inset: 0; overflow: hidden; }
-/* Fond flouté : la même photo, zoomée et floutée, remplit les bords */
-.hero-bg img.hero-bg-blur {
+.hero-bg img {
   width: 100%;
-  height: 100%;
+  height: 115%;
   object-fit: cover;
-  filter: blur(28px) brightness(1.06) saturate(1.05);
-  transform: scale(1.15);
+  object-position: center;
   will-change: transform;
-}
-/* Photo principale : entière, format d'origine conservé */
-.hero-bg img.hero-bg-main {
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  height: 92%;
-  width: auto;
-  max-width: 94%;
-  object-fit: contain;
-  filter: drop-shadow(0 26px 60px rgba(24, 31, 52, .28));
+  transform: scale(1.05);
 }
 .hero-veil {
   position: absolute;
