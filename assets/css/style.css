@@ -300,7 +300,7 @@ nav#nav.stuck { box-shadow: 0 8px 30px rgba(24, 31, 52, .08); }
   padding: 0 1.5rem;
 }
 .hero-logo img {
-  width: clamp(170px, 22vw, 250px);
+  width: clamp(250px, 34vw, 400px);
   filter: drop-shadow(0 10px 30px rgba(250, 247, 241, .8));
 }
 .hero-logo-top {
