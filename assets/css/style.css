@@ -267,12 +267,12 @@ nav#nav.stuck { box-shadow: 0 8px 30px rgba(24, 31, 52, .08); }
 /* ── HERO (accueil) ── */
 .hero {
   position: relative;
-  height: 100svh;
-  min-height: 600px;
+  min-height: 100svh;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 6.5rem 0 4rem; /* le hero grandit avec son contenu : les CTA ne sont jamais coupés */
 }
 .hero-bg { position: absolute; inset: 0; overflow: hidden; }
 .hero-bg img {
