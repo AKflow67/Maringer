@@ -47,25 +47,7 @@
       badgeIo.observe(badge);
     }
 
-    // ── SECTION-LABELS : apparition lettre par lettre ──
-    if ('IntersectionObserver' in window) {
-      var labels = document.querySelectorAll('.section-label');
-      var lIo = new IntersectionObserver(function(entries) {
-        entries.forEach(function(e) {
-          if (e.isIntersecting) {
-            var el = e.target, txt = el.textContent;
-            el.textContent = ''; el.style.opacity = '1';
-            var i = 0;
-            var t = setInterval(function() {
-              el.textContent += txt[i++];
-              if (i >= txt.length) clearInterval(t);
-            }, 38);
-            lIo.unobserve(el);
-          }
-        });
-      }, { threshold: 0.9 });
-      labels.forEach(function(l) { l.style.opacity = '0'; lIo.observe(l); });
-    }
+    // (Animation lettre par lettre retirée : typo stable pour tous les lecteurs)
 
     // ── LINE DRAW SUR LES TITRES ──
     var headings = document.querySelectorAll('.h2, .h3, .forge-title');
@@ -134,7 +116,7 @@
 
     // ── EMAIL ANTI-OBFUSCATION ──
     (function(){
-      var u='contact', d='metalleriemaringer.com', addr=u+'@'+d;
+      var u='contact', d='metalleriemaringer.fr', addr=u+'@'+d;
       var el = document.getElementById('cmail');
       if(el && !el.querySelector('a')){
         var a = document.createElement('a');
