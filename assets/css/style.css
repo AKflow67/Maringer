@@ -347,6 +347,7 @@ nav#nav.stuck { box-shadow: 0 8px 30px rgba(24, 31, 52, .08); }
 .hero-ctas {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
   gap: 1rem;
   margin-top: 2.4rem;
@@ -1226,19 +1227,18 @@ nav.open .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45d
   .nav-links a.active { border-bottom: 1px solid rgba(34, 31, 27, .06); color: var(--bleu); }
 }
 
-/* ============ BADGE NOTE GOOGLE (dans .hero-ctas, style carte comme agencementklein.fr) ============ */
+/* ============ BADGE NOTE GOOGLE (carte laiton, a gauche du CTA « Parlons de votre projet ») ============ */
 .gnote {
   display: inline-flex; align-items: center; gap: 12px;
   background: var(--paper);
   border: 1px solid var(--laiton-soft);
-  border-radius: 12px; padding: .35rem 1.1rem;
+  border-radius: 14px; padding: 8px 18px;
   box-shadow: var(--ombre);
 }
-.gnote-l { text-align: center; line-height: 1; flex: none; }
-.gnote-stars { display: block; color: #fbbc04; font-size: .85rem; letter-spacing: 1px; }
 .gnote-note {
-  display: block; font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 600;
-  line-height: 1; color: var(--laiton); margin-top: 3px;
+  font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 600;
+  line-height: .9; color: var(--laiton);
 }
-.gnote-lbl { font-size: .82rem; color: var(--encre); line-height: 1.25; }
-.gnote-lbl .gw { font-weight: 600; font-size: .95rem; }
+.gnote-stars { color: #fbbc04; font-size: .9rem; letter-spacing: 2px; line-height: 1.2; }
+.gnote-lbl { font-size: .8rem; color: var(--gris); }
+.gnote-lbl .gw { font-weight: 600; }
