@@ -1242,3 +1242,20 @@ nav.open .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45d
 .gnote-stars { color: #fbbc04; font-size: .9rem; letter-spacing: 2px; line-height: 1.2; }
 .gnote-lbl { font-size: .8rem; color: var(--gris); }
 .gnote-lbl .gw { font-weight: 600; }
+
+
+/* ============ MAILLAGE INTERNE : liens de cartes et liens en texte ============ */
+.card-link {
+  display: inline-block; margin-top: .75rem;
+  font-size: .82rem; font-weight: 600; letter-spacing: .03em;
+  color: var(--laiton); text-decoration: none;
+  border-bottom: 1px solid var(--laiton-soft); padding-bottom: 2px;
+  transition: color .2s ease, border-color .2s ease;
+}
+.card-link:hover { color: var(--bleu); border-color: var(--bleu); }
+.tlink {
+  color: var(--bleu); text-decoration: none;
+  border-bottom: 1px solid var(--laiton-soft);
+  transition: border-color .2s ease;
+}
+.tlink:hover { border-color: var(--bleu); }
