@@ -272,7 +272,7 @@ nav#nav.stuck { box-shadow: 0 8px 30px rgba(24, 31, 52, .08); }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6.5rem 0 4rem; /* le hero grandit avec son contenu : les CTA ne sont jamais coupés */
+  padding: 5rem 0 2.5rem; /* le hero grandit avec son contenu : les CTA ne sont jamais coupés */
 }
 .hero-bg { position: absolute; inset: 0; overflow: hidden; }
 .hero-bg img {
@@ -303,8 +303,17 @@ nav#nav.stuck { box-shadow: 0 8px 30px rgba(24, 31, 52, .08); }
   padding: 0 1.5rem;
 }
 .hero-logo img {
-  width: clamp(250px, 34vw, 400px);
+  width: clamp(210px, 38vh, 400px); /* calé sur la hauteur d'écran : tout tient sans scroll, CTA compris */
   filter: drop-shadow(0 10px 30px rgba(250, 247, 241, .8));
+}
+/* Écrans peu hauts (13 pouces, laptops) : on compacte pour que les CTA soient visibles direct */
+@media (max-height: 860px) {
+  .hero { padding: 4.2rem 0 2rem; }
+  .hero-logo-top { margin-bottom: .7rem; }
+  .hero-logo-rule, .hero-logo-rule2 { margin: .8rem 0; }
+  .hero-logo-slogan { font-size: clamp(1.15rem, 2.2vw, 1.6rem); }
+  .hero-logo-bottom { margin-top: .7rem; }
+  .hero-ctas { margin-top: 1.5rem; }
 }
 .hero-logo-top {
   font-size: .68rem;
