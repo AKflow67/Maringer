@@ -55,4 +55,28 @@
     <lastmod>2026-08-26</lastmod>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://metalleriemaringer.fr/fenetre-acier.html</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://metalleriemaringer.fr/serre-jardin.html</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://metalleriemaringer.fr/pergola-marquise.html</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://metalleriemaringer.fr/portes-metalliques.html</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
