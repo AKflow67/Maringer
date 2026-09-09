@@ -34,11 +34,14 @@ metallerie-maringer/
 - Pour le header sur fond sombre il sera automatiquement en blanc (filtre CSS)
 - Si tu as une version SVG ou PNG fond transparent, c'est encore mieux
 
-### 4. Déploiement GitHub + Netlify
-1. Créer un repo GitHub `metallerie-maringer`
-2. Pusher le dossier complet
-3. Sur Netlify : "New site from Git" → sélectionner le repo
-4. Une fois le domaine metalleriemaringer.fr récupéré : Netlify > Domain settings > Add custom domain
+### 4. Déploiement (en production depuis le 09/09/2026)
+- Site en ligne : https://metalleriemaringer.com (hébergement OVH 100M d'Henri, cluster129, dossier /www)
+- Chaque push sur `main` déploie automatiquement via GitHub Actions (`.github/workflows/deploy.yml`, FTP) - secrets FTP_SERVER / FTP_USERNAME / FTP_PASSWORD dans le repo
+- metalleriemaringer.fr, www et http redirigent en 301 vers https://metalleriemaringer.com (redirections OVH + .htaccess)
+- Email public : contact@metalleriemaringer.com (boite MX Plan OVH ; contact@metalleriemaringer.fr est redirige vers elle)
+- Formulaire de contact : contact.php (mail() PHP 8.3) -> merci.html
+- Cache-busting : les pages referencent `main.js?v=AAAAMMJJ` et `style.css?v=AAAAMMJJ` - incrementer la version a chaque modif de JS/CSS
+- L'ancien miroir maringer.netlify.app reste branche sur le repo (sans effet sur la prod)
 
 ### 5. Vérifier le lien Facebook
 - Chercher `facebook.com/metalleriemaringer` dans index.html

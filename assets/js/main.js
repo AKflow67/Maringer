@@ -116,7 +116,7 @@
 
     // ── EMAIL ANTI-OBFUSCATION ──
     (function(){
-      var u='contact', d='metalleriemaringer.fr', addr=u+'@'+d;
+      var u='contact', d='metalleriemaringer.com', addr=u+'@'+d;
       var el = document.getElementById('cmail');
       if(el && !el.querySelector('a')){
         var a = document.createElement('a');
