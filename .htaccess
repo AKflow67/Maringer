@@ -4,3 +4,12 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} !^metalleriemaringer\.com$ [NC,OR]
 RewriteCond %{HTTPS} !=on
 RewriteRule ^(.*)$ https://metalleriemaringer.com/$1 [R=301,L]
+
+
+# Revalidation systematique du HTML et des assets versionnes
+# (empeche qu'un navigateur reste bloque sur une ancienne version apres un deploiement)
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|js|css)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
