@@ -1,0 +1,6 @@
+# Canonique : tout le trafic vers https://metalleriemaringer.com
+# (metalleriemaringer.fr, www et http font une redirection 301)
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^metalleriemaringer\.com$ [NC,OR]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://metalleriemaringer.com/$1 [R=301,L]
