@@ -17,13 +17,16 @@ if (is_file($secretFile)) {
     $turnstileSecret = (string) include $secretFile;
 }
 
+// Turnstile n'est exige QUE si la cle secrete est presente sur le serveur
+// (secret GitHub TURNSTILE_SECRET renseigne). Sans cle : honeypot seul, comme avant.
+// IMPORTANT : poser la cle de site dans contact.html AVANT de renseigner le secret GitHub.
 $token = trim($_POST['cf-turnstile-response'] ?? '');
-if ($token === '') {
-    http_response_code(403);
-    echo 'Vérification anti-robot manquante. Revenez au formulaire, cochez la case puis renvoyez votre demande.';
-    exit;
-}
 if ($turnstileSecret !== '') {
+    if ($token === '') {
+        http_response_code(403);
+        echo 'Vérification anti-robot manquante. Revenez au formulaire, cochez la case puis renvoyez votre demande.';
+        exit;
+    }
     $payload = http_build_query([
         'secret'   => $turnstileSecret,
         'response' => $token,
@@ -56,8 +59,6 @@ if ($turnstileSecret !== '') {
         exit;
     }
 }
-// Sans cle secrete sur le serveur (deploiement pas encore configure), on se contente
-// de la presence du jeton : mode degrade, a ne pas laisser durer.
 
 // Validation
 $nom = htmlspecialchars(trim($_POST['nom'] ?? ''));
