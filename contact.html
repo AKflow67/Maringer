@@ -39,6 +39,7 @@
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#24407c">
   <link rel="stylesheet" href="assets/css/style.css?v=20260909b">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -176,6 +177,10 @@
                       placeholder="Décrivez votre projet, localisation, contraintes particulières…"
                       required></textarea>
           </div>
+          <div class="field">
+            <div class="cf-turnstile" data-sitekey="SITEKEY_A_POSER" data-theme="light" data-language="fr" data-appearance="always"></div>
+            <p style="font-size:13px;opacity:.7;margin:8px 0 0">Vérification anti-robot : une simple coche, sans image à déchiffrer.</p>
+          </div>
           <div>
             <button type="submit" class="btn btn-bleu">Envoyer ma demande</button>
           </div>
@@ -312,7 +317,7 @@
     <div class="legal-modal-content">
       <button class="legal-close" onclick="this.closest('.legal-modal').style.display='none'" aria-label="Fermer">&times;</button>
       <h2>Politique de confidentialité</h2>
-      <p style="font-size:.85rem;opacity:.6">Dernière mise à jour : Juillet 2026</p>
+      <p style="font-size:.85rem;opacity:.6">Dernière mise à jour : Octobre 2026</p>
       <h3>1. Responsable du traitement</h3>
       <p><strong>Métallerie Maringer</strong><br>
       10 Rue de la Croix, 67310 Westhoffen, Alsace<br>
@@ -328,6 +333,7 @@
       <ul><li><strong>Intérêt légitime</strong> pour les données de navigation (fonctionnement du site)</li><li><strong>Consentement</strong> pour les données transmises via le formulaire</li></ul>
       <h3>5. Destinataires</h3>
       <p>Les données sont destinées uniquement à la Métallerie Maringer. Aucune transmission à des tiers, sauf obligation légale.</p>
+      <p>Le formulaire de contact est protégé contre les robots par <strong>Cloudflare Turnstile</strong> (Cloudflare, Inc.). Ce service vérifie que l'envoi est fait par une personne, sans cookie de suivi ni publicité ; votre adresse IP et des informations techniques sur votre navigateur sont traitées par Cloudflare à cette seule fin.</p>
       <h3>6. Durée de conservation</h3>
       <ul><li>Données du formulaire : 12 mois maximum</li><li>Données de navigation : 1 an maximum</li></ul>
       <h3>7. Cookies</h3>

@@ -1,0 +1,2 @@
+# Cle secrete Cloudflare Turnstile : generee au deploiement par GitHub Actions, jamais commitee
+turnstile-secret.php

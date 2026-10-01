@@ -4,6 +4,7 @@
 #   FTP_SERVER   = ftp.cluster129.hosting.ovh.net
 #   FTP_USERNAME = metallq
 #   FTP_PASSWORD = mot de passe FTP (défini par Tom dans le manager)
+#   TURNSTILE_SECRET = cle secrete du widget Cloudflare Turnstile (formulaire de contact)
 name: Deploy to OVH
 
 on:
@@ -15,6 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      # Cle secrete Cloudflare Turnstile : jamais dans le repo, ecrite au deploiement
+      # depuis le secret GitHub TURNSTILE_SECRET (Settings > Secrets and variables > Actions).
+      - name: Ecrire la cle secrete Turnstile
+        run: |
+          printf "<?php return '%s';\n" "${{ secrets.TURNSTILE_SECRET }}" > turnstile-secret.php
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
